@@ -1,0 +1,15 @@
+@import "../../../assets/styles/variables";
+
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background: $endeavour;
+    box-shadow: 0 0 1px 1px black;
+}
+
+p {
+    color: $monza;
+    text-align: center;
+}

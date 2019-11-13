@@ -1,0 +1,17 @@
+@import "../../../assets/styles/variables";
+
+:host {
+    flex: 1;
+}
+
+.form {
+    display: flex;
+    flex-flow: column;
+}
+
+.btn {
+    padding: 5px;
+    border-radius: 4px;
+    background: $endeavour;
+    color: $monza;
+}
