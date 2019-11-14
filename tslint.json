@@ -12,13 +12,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      ["atom","molecule","organism","view"],
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      ["atom","molecule","organism","view"],
       "kebab-case"
     ],
     "import-blacklist": [

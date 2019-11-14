@@ -1,0 +1,6 @@
+<button type="button" (click)="getCards()">Get cards</button>
+
+<molecule-cards
+        *ngFor="let card of cards"
+        [card]="card"
+></molecule-cards>
