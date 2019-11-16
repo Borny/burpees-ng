@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {DataStorageService} from '../../shared/data-storage.service';
 
 @Component({
   selector: 'organism-card-form',
@@ -10,7 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class OrganismCardFormComponent implements OnInit {
   public cardForm: FormGroup;
 
-constructor(){
+constructor(private dataStorageService: DataStorageService){
   
 }
 
@@ -21,6 +22,7 @@ constructor(){
   public onSubmit() {
     console.log('submit');
     console.log(this.cardForm.value);
+    this.addCard(this.cardForm.value)
   }
 
   private initForm() {
@@ -29,6 +31,10 @@ constructor(){
       time: new FormControl('', Validators.required),
       set: new FormControl('', Validators.required)
     });
+  }
+
+  private addCard(card) {
+  this.dataStorageService.postCard(card);
   }
 }
 
