@@ -1,0 +1,13 @@
+@import "../../../assets/styles/variables";
+
+:host {
+    width: 200px;
+    display: flex;
+    flex-flow: column;
+    background: $endeavour;
+}
+
+.card__header {
+    color: $white;
+    background: $black;
+}

@@ -1,3 +1,12 @@
-<p>{{ card.day }}</p>
-<p>{{ card.time }}</p>
-<p>{{ card.set }}</p>
+<header class="card__header">
+  <p>Day {{ card.day }}</p>
+</header>
+<main class="card__body">
+  <p class="card__body--text">Time {{ card.time }}</p>
+  <p class="card__body--text">Set {{ card.set }}</p>
+</main>
+
+<button type="button" (click)="onManageCard()">
+  {{ setButtonManageContent() }}
+</button>
+<button type="button" (click)="onEditCard()">Edit</button>

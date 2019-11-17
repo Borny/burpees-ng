@@ -1,1 +1,8 @@
-<organism-card-form></organism-card-form> <organism-cards></organism-cards>
+<button (click)="onDisplayCardForm()">Toggle card form</button>
+
+<organism-card-form
+  *ngIf="displayCardForm"
+  [isEditMode]="isEditMode"
+  [cardToEditIndex]="cardToEditIndex"
+></organism-card-form>
+<organism-cards></organism-cards>
