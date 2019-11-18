@@ -10,11 +10,13 @@ import { Card } from '../models/card/card.model';
 export class DataStorageService {
   private readonly URL = `https://ng-burpees.firebaseio.com/posts.json`;
 
+  private cards: Card[];
+
   constructor(private http: HttpClient) {
   }
 
   public postCard(cardData: Card) {
-    this.http.post(
+    this.http.put(
       this.URL,
       cardData
     )
@@ -40,7 +42,6 @@ export class DataStorageService {
           return postArray;
         }))
       );
-
   }
 
   public deleteCards(): void {

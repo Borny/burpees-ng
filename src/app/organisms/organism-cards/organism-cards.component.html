@@ -8,12 +8,14 @@
 <p *ngIf="fetching">Fetching...</p>
 
 <ng-container *ngIf="cards">
-  <molecule-cards
-    *ngFor="let card of cards; index as i; last as isLast"
-    [card]="card"
-    [index]="i"
-    [isLast]="isLast"
-    (deleteCard$)="deleteCard(i, isLast)"
-    (editCard$)="editCard(i)"
-  ></molecule-cards>
+  <div class="card-container">
+    <molecule-cards
+      *ngFor="let card of cards; index as i; last as isLast"
+      [card]="card"
+      [index]="i"
+      [isLast]="isLast"
+      (deleteCard$)="deleteCard(i, isLast)"
+      (editCard$)="editCard(i)"
+    ></molecule-cards>
+  </div>
 </ng-container>

@@ -1,18 +1,29 @@
 *,
 ::before,
 ::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
 div,
 p,
 span,
 ul,
 li {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: 0;
+  &:focus {
+    outline: 0;
+  }
 }

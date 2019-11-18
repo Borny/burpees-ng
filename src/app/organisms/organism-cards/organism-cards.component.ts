@@ -13,6 +13,7 @@ import { CardService } from '../../shared/services/card.service';
 })
 
 export class OrganismCardsComponent implements OnInit, OnDestroy {
+
   public cards: Card[] = [];
   public fetching = false;
 
@@ -33,30 +34,25 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
 
   public onGetCards(): void {
     // TODO: add trackBy to *ngFor
-    // this.fetching = true;
-    // this.dataStorageService.fetchCards()
-    //   .subscribe((cards: Card[]) => {
-    //     this.cards = cards;
-    //     this.fetching = false;
-    //   });
+    this.fetching = true;
+    this.dataStorageService.fetchCards()
+      .subscribe((cards: Card[]) => {
+        this.cards = cards;
+        this.fetching = false;
+      });
 
-    this.cards = this.cardService.getCards();
+    // this.cards = this.cardService.getCards();
   }
 
   public editCard(index: number): void {
-    // TODO: Can only edit the time and set.
-    // TODO: clicking on the card opens the form
     this.cardService.openEditForm$.next(index);
   }
 
   public onDeleteCards(): void { // TODO: delete when finished with the app
-    // this.dataStorageService.deleteCards();
-    this.cardService.deleteCards();
+    this.dataStorageService.deleteCards();
   }
 
   public deleteCard(index: number, isLast: boolean): void {
-    // TODO: if last card then delete entirely
-    // if any other card then delete the data but keeps its space in the grid (blank space), then on click opens the form and updates the card
     isLast ? this.cardService.deleteCard(index) : this.cardService.clearCard(index);
   }
 

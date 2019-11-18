@@ -1,4 +1,4 @@
 export enum FormMode {
-  EDIT = 'edit',
-  CREATE = 'create',
+  EDIT = 'Edit day',
+  CREATE = 'Create',
 }

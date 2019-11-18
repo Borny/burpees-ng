@@ -1,19 +1,19 @@
 @import "../../../assets/styles/variables";
 
 :host {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .form {
-    display: flex;
-    flex-flow: column;
+  display: flex;
+  align-items: center;
 }
 
 .btn {
-    padding: 5px;
-    border-radius: 4px;
-    background: $endeavour;
-    color: $monza;
+  padding: 5px;
+  border-radius: 4px;
+  background: $endeavour;
+  color: $monza;
 }
