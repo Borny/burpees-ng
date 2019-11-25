@@ -3,6 +3,7 @@ import { CardService } from '../../shared/services/card.service';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { DataStorageService } from '../../shared/services/data-storage.service';
 
 @Component({
   selector: 'organism-header',
@@ -14,9 +15,9 @@ export class OrganismHeaderComponent implements OnInit, OnDestroy {
   public heading = 'Burpees Challenge';
   public cardCount = 0;
 
-  private onDestroy$ = new Subject<void>()
+  private onDestroy$ = new Subject<void>();
 
-  constructor(private cardService: CardService) {
+  constructor(private cardService: CardService, private dataStorage: DataStorageService) {
   }
 
   ngOnInit(): void {
@@ -28,8 +29,11 @@ export class OrganismHeaderComponent implements OnInit, OnDestroy {
     this.onDestroy$.complete();
   }
 
-  public getCardCount() {
-    this.cardService.cardsListChanged$
+  public getCardCount(): void {
+    // this.cardService.cardsListChanged$
+    //   .pipe(takeUntil(this.onDestroy$))
+    //   .subscribe(cardsList => this.cardCount = cardsList.length);
+    this.dataStorage.cardsListChanged$
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(cardsList => this.cardCount = cardsList.length);
   }

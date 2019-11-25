@@ -1,0 +1,17 @@
+.btn {
+  padding: 5px 15px;
+  border-radius: 4px;
+  color: $white;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &-fetch {
+    background: $endeavour;
+  }
+  &-delete {
+    background: $monza;
+  }
+}

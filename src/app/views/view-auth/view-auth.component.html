@@ -1,0 +1,44 @@
+<!-- <form [formGroup]="authForm" (ngSubmit)="onSubmitReactive()">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" formControlName="email" />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      id="password"
+      name="password"
+      type="password"
+      formControlName="password"
+    />
+  </div>
+  <button type="submit">{{ isLoginMode ? "Log In" : "Sign Up" }}</button>
+  <button type="button" (click)="onSwitchMode()">
+    Switch to {{ isLoginMode ? "Log In" : "Sign Up" }}
+  </button>
+</form> -->
+
+<form #authForm="ngForm" (ngSubmit)="onSubmitTemplate(authForm)">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" ngModel required />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      id="password"
+      name="password"
+      type="password"
+      ngModel
+      required
+      password
+      minlength="6"
+    />
+  </div>
+  <button type="submit" [disabled]="authForm.invalid">
+    {{ isLoginMode ? "Log In" : "Sign Up" }}
+  </button>
+  <button type="button" (click)="onSwitchMode()">
+    Switch to {{ isLoginMode ? "Log In" : "Sign Up" }}
+  </button>
+</form>

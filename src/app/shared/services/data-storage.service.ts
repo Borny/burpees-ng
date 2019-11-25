@@ -1,21 +1,35 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Card } from '../models/card/card.model';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
-  private readonly URL = `https://ng-burpees.firebaseio.com/posts.json`;
 
-  private cards: Card[];
+  private cards: Card[] = [];
+  public cardsListChanged$: BehaviorSubject<Card[]> = new BehaviorSubject(this.cards.slice());
+
+  private readonly URL = `https://ng-burpees.firebaseio.com/cards.json`;
 
   constructor(private http: HttpClient) {
   }
 
   public postCard(cardData: Card) {
+    this.http.post(
+      this.URL,
+      cardData
+    )
+      .subscribe(
+        responseData => {
+          console.log(responseData);
+        }
+      );
+  }
+
+  public editCard(cardData: Card) {
     this.http.put(
       this.URL,
       cardData
@@ -28,9 +42,7 @@ export class DataStorageService {
   }
 
   public fetchCards(): Observable<Card[]> {
-    return this.http.get(
-      this.URL
-    )
+    return this.http.get(this.URL)
       .pipe(
         (map(responseData => {
           const postArray = [];
@@ -46,6 +58,8 @@ export class DataStorageService {
 
   public deleteCards(): void {
     this.http.delete(this.URL)
-      .subscribe(responseData => console.log(responseData));
+      .subscribe(() => {
+        this.cardsListChanged$.next(this.cards.slice());
+      });
   }
 }

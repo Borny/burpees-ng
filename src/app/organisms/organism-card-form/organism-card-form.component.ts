@@ -53,7 +53,9 @@ export class OrganismCardFormComponent implements OnInit, OnDestroy {
     // console.log('submit');
     // console.log(this.cardForm.value);
     if (this.isEditMode) {
-      this.cardService.editCard(this.cardForm.value, this.cardToEditIndex);
+      // this.cardService.editCard(this.cardForm.value, this.cardToEditIndex);
+
+      this.dataStorageService.editCard(this.cardForm.value);
       this.cardForm.reset();
       this.editButtonEvent$.emit();
     } else {
@@ -73,6 +75,7 @@ export class OrganismCardFormComponent implements OnInit, OnDestroy {
 
   private addCard(card: Card): void {
     this.dataStorageService.postCard(card);
+    // this.cardService.addCard(card);
     this.cardForm.reset();
   }
 

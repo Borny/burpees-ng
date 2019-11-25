@@ -8,28 +8,6 @@ import { DataStorageService } from './data-storage.service';
 export class CardService {
   private card: Card;
   private cards: Card[] = [];
-  // private cards: Card[] = [
-  //   new Card(
-  //     'one',
-  //     '6min',
-  //     '5x5',
-  //   ),
-  //   new Card(
-  //     'one',
-  //     '6min',
-  //     '5x5',
-  //   ),
-  //   new Card(
-  //     'one',
-  //     '6min',
-  //     '5x5',
-  //   ),
-  //   new Card(
-  //     'one',
-  //     '6min',
-  //     '5x5',
-  //   ),
-  // ];
 
   public cardsListChanged$ = new BehaviorSubject(this.cards.slice());
   public openEditForm$ = new Subject();
@@ -38,37 +16,41 @@ export class CardService {
 
   }
 
-  public addCard(card: Card): void {
-    const newCard = new Card(
-      `${this.cards.length + 1}`,
-      `${Object.values(card)[0]}`,
-      `${Object.values(card)[1]}`,
-    );
 
-    this.dataStorageService.postCard(newCard);
-    this.cardsListChanged$.next(this.cards.slice());
-  }
+  // public addCard(card: Card): void {
+  //   const newCard = new Card(
+  //     `${this.cards.length + 1}`,
+  //     `${Object.values(card)[0]}`,
+  //     `${Object.values(card)[1]}`,
+  //   );
 
-  public getCards(): void {
-    this.dataStorageService.fetchCards()
-      .subscribe((cards) => {
-        this.cards = cards;
-      });
+  //   // this.dataStorageService.postCard(newCard);
+
+  //   this.cards.push(newCard);
+  //   this.cardsListChanged$.next(this.cards.slice());
+  // }
+
+  public getCards(): Card[] {
+    // this.dataStorageService.fetchCards()
+    //   .subscribe((cards) => {
+    //     this.cards = cards;
+    //   });
+    return this.cards.slice();
   }
 
   public getCard(index: number): Card {
     return this.cards[index];
   }
 
-  public editCard(value: Card, index: number) {
-    const cardEdited = new Card(
-      `${index + 1}`,
-      `${Object.values(value)[0]}`,
-      `${Object.values(value)[1]}`,
-    );
-    this.cards[index] = cardEdited;
-    this.cardsListChanged$.next(this.cards.slice());
-  }
+  // public editCard(value: Card, index: number) {
+  //   const cardEdited = new Card(
+  //     `${index + 1}`,
+  //     `${Object.values(value)[0]}`,
+  //     `${Object.values(value)[1]}`,
+  //   );
+  //   this.cards[index] = cardEdited;
+  //   this.cardsListChanged$.next(this.cards.slice());
+  // }
 
   public clearCard(index: number) {
     this.cards[index].day = '';
@@ -77,8 +59,7 @@ export class CardService {
   }
 
   public deleteCard(index: number) {
-    // this.cards.splice(index, 1);
-
+    this.cards.splice(index, 1);
     this.cardsListChanged$.next(this.cards.slice());
   }
 

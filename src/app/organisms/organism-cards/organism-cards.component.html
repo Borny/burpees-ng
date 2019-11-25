@@ -1,5 +1,9 @@
-<button type="button" (click)="onGetCards()">Get cards</button>
-<button type="button" (click)="onDeleteCards()">Delete cards</button>
+<button type="button" class="btn btn-fetch" (click)="onGetCards()">
+  Get cards
+</button>
+<button type="button" class="btn btn-delete" (click)="onDeleteCards()">
+  Delete cards
+</button>
 
 <p *ngIf="!cards.length && !fetching">
   There are no cards to display...please add one
@@ -7,7 +11,7 @@
 
 <p *ngIf="fetching">Fetching...</p>
 
-<ng-container *ngIf="cards">
+<ng-container *ngIf="cards && !fetching">
   <div class="card-container">
     <molecule-cards
       *ngFor="let card of cards; index as i; last as isLast"
