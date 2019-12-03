@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormControl, Validators, Form } from '@angular/forms';
 import { AuthResponseData } from '../../shared/models/auth-response.model';
 import { AuthService } from '../../shared/services/auth.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'view-auth',
@@ -11,6 +12,9 @@ export class ViewAuthComponent implements OnInit {
   public isLoginMode = true;
 
   public authFormReactive: FormGroup;
+  public isFetching = false;
+  public error = null;
+  public success = null;
 
   constructor(private authService: AuthService) {
 
@@ -29,17 +33,31 @@ export class ViewAuthComponent implements OnInit {
     if (!form.valid) {
       return;
     }
+    this.isFetching = true;
     const email = form.value.email;
     const password = form.value.password;
 
+    let authObs: Observable<AuthResponseData>;
+
     if (this.isLoginMode) {
-      // ...
+      authObs = this.authService.signIn(email, password);
     } else {
-      this.authService.signUp(email, password).subscribe(
-        (resData: AuthResponseData) => { console.log(resData); },
-        (error) => { console.log(error); }
-      );
+      authObs = this.authService.signUp(email, password);
     }
+
+    authObs.subscribe(
+        (resData: AuthResponseData) => {
+          this.success = this.isLoginMode
+              ? `Yea you're logged in !!`
+              : `Yea you're signed up !!`;
+          console.log(resData);
+          this.isFetching = false;
+        },
+        (errorMessage) => {
+          console.log('error :', errorMessage);
+          this.error = errorMessage;
+          this.isFetching = false;
+        });
 
     form.reset();
   }

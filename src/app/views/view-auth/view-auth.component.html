@@ -18,7 +18,10 @@
   </button>
 </form> -->
 
-<form #authForm="ngForm" (ngSubmit)="onSubmitTemplate(authForm)">
+<p *ngIf="error" class="alert">{{error}}</p>
+<p *ngIf="success" class="success">{{success}}</p>
+
+<form *ngIf="!isFetching" #authForm="ngForm" (ngSubmit)="onSubmitTemplate(authForm)">
   <div class="form-group">
     <label for="email">Email</label>
     <input id="email" name="email" type="email" ngModel required />
@@ -32,13 +35,15 @@
       ngModel
       required
       password
-      minlength="6"
+      minlength="1"
     />
   </div>
   <button type="submit" [disabled]="authForm.invalid">
     {{ isLoginMode ? "Log In" : "Sign Up" }}
   </button>
   <button type="button" (click)="onSwitchMode()">
-    Switch to {{ isLoginMode ? "Log In" : "Sign Up" }}
+    Switch to {{ isLoginMode ? "Sign Up" : "Log In" }}
   </button>
 </form>
+
+<h2 *ngIf="isFetching">Fetching...</h2>

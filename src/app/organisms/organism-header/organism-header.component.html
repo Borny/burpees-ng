@@ -1,5 +1,9 @@
-<a routerLink="/home">Home</a>
-<a routerLink="/">Auth</a>
+<div class="header-title">
+    <p>{{ heading | uppercase }}</p>
+    <p>{{ cardCount }} / 100</p>
+</div>
 
-<p>{{ heading | uppercase }}</p>
-<p>{{ cardCount }} / 100</p>
+<div class="header-nav">
+    <a routerLink="/home">Home</a>
+    <a routerLink="/">Auth</a>
+</div>

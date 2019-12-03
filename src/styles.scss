@@ -3,3 +3,18 @@
 @import "./assets/styles/base";
 
 @import "./assets/styles/buttons";
+
+
+.alert{
+  color: red;
+  background: rgba(255,0,0,.5);
+  padding: 20px;
+  text-align: center;
+}
+
+.success{
+  color: blue;
+  background: rgba(0,0,255,.5);
+  padding: 20px;
+  text-align: center;
+}
