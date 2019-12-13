@@ -18,17 +18,30 @@
   </button>
 </form> -->
 
-<p *ngIf="error" class="alert">{{error}}</p>
-<p *ngIf="success" class="success">{{success}}</p>
+<p *ngIf="error" class="alert">{{ error }}</p>
+<p *ngIf="success" class="success">{{ success }}</p>
 
-<form *ngIf="!isFetching" #authForm="ngForm" (ngSubmit)="onSubmitTemplate(authForm)">
+<form
+  class="auth-form"
+  *ngIf="!isFetching"
+  #authForm="ngForm"
+  (ngSubmit)="onSubmitTemplate(authForm)"
+>
   <div class="form-group">
-    <label for="email">Email</label>
-    <input id="email" name="email" type="email" ngModel required />
+    <label class="form-label" for="email">Email</label>
+    <input
+      class="form-control"
+      id="email"
+      name="email"
+      type="email"
+      ngModel
+      required
+    />
   </div>
   <div class="form-group">
-    <label for="password">Password</label>
+    <label class="form-label" for="password" for="password">Password</label>
     <input
+      class="form-control"
       id="password"
       name="password"
       type="password"
@@ -38,12 +51,14 @@
       minlength="1"
     />
   </div>
-  <button type="submit" [disabled]="authForm.invalid">
-    {{ isLoginMode ? "Log In" : "Sign Up" }}
-  </button>
-  <button type="button" (click)="onSwitchMode()">
-    Switch to {{ isLoginMode ? "Sign Up" : "Log In" }}
-  </button>
+  <div class="btn-container">
+    <button class="btn btn-confirm" type="submit" [disabled]="authForm.invalid">
+      {{ isLoginMode ? "Log In" : "Sign Up" }}
+    </button>
+    <button class="btn btn-standard" type="button" (click)="onSwitchMode()">
+      Switch to {{ isLoginMode ? "Sign Up" : "Log In" }}
+    </button>
+  </div>
 </form>
 
 <h2 *ngIf="isFetching">Fetching...</h2>

@@ -1,9 +1,16 @@
-<div class="header-title">
-    <p>{{ heading | uppercase }}</p>
-    <p>{{ cardCount }} / 100</p>
-</div>
+<p>{{ userName }}</p>
 
 <div class="header-nav">
-    <a routerLink="/home">Home</a>
-    <a routerLink="/">Auth</a>
+  <a class="btn-link" routerLink="/home" *ngIf="isAuthenticated">Home</a>
+  <a class="btn-link" routerLink="/" *ngIf="!isAuthenticated">Auth</a>
+  <a class="btn-link" routerLink="/detail">Detail</a>
 </div>
+
+<div class="header-title">
+  <p>{{ heading | uppercase }}</p>
+  <p>{{ cardCount }} / 100</p>
+</div>
+
+<button *ngIf="isAuthenticated" (click)="onLogOut()" class="btn btn-delete">
+  Log out
+</button>

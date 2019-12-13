@@ -1,14 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm, FormGroup, FormControl, Validators, Form } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { Observable } from 'rxjs';
+
 import { AuthResponseData } from '../../shared/models/auth-response.model';
 import { AuthService } from '../../shared/services/auth.service';
-import {Observable} from 'rxjs';
+
+
+
 
 @Component({
   selector: 'view-auth',
   templateUrl: './view-auth.component.html'
 })
-export class ViewAuthComponent implements OnInit {
+export class ViewAuthComponent implements OnInit, OnDestroy {
   public isLoginMode = true;
 
   public authFormReactive: FormGroup;
@@ -16,12 +22,14 @@ export class ViewAuthComponent implements OnInit {
   public error = null;
   public success = null;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
 
   }
 
   ngOnInit(): void {
     this._initForm();
+  }
+  ngOnDestroy(): void {
   }
 
   // public onSubmitReactive() {
@@ -29,7 +37,9 @@ export class ViewAuthComponent implements OnInit {
   // }
 
   public onSubmitTemplate(form: NgForm) {
-    console.log(form.value);
+    this.error = null;
+    this.success = null;
+
     if (!form.valid) {
       return;
     }
@@ -46,18 +56,17 @@ export class ViewAuthComponent implements OnInit {
     }
 
     authObs.subscribe(
-        (resData: AuthResponseData) => {
-          this.success = this.isLoginMode
-              ? `Yea you're logged in !!`
-              : `Yea you're signed up !!`;
-          console.log(resData);
-          this.isFetching = false;
-        },
-        (errorMessage) => {
-          console.log('error :', errorMessage);
-          this.error = errorMessage;
-          this.isFetching = false;
-        });
+      (resData: AuthResponseData) => {
+        this.success = this.isLoginMode
+          ? `Yea you're logged in !!`
+          : `Yea you're signed up !!`;
+        this.isFetching = false;
+        this.router.navigate(['/home']);
+      },
+      (errorMessage) => {
+        this.error = errorMessage;
+        this.isFetching = false;
+      });
 
     form.reset();
   }

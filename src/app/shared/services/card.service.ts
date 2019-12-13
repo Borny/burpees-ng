@@ -10,7 +10,7 @@ export class CardService {
   private cards: Card[] = [];
 
   public cardsListChanged$ = new BehaviorSubject(this.cards.slice());
-  public openEditForm$ = new Subject();
+  public openEditForm$: Subject<number> = new Subject();
 
   constructor(private dataStorageService: DataStorageService) {
 
