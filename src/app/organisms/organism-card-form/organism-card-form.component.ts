@@ -45,13 +45,10 @@ export class OrganismCardFormComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     // this.destroy.next();
     // this.destroy.complete();
-    // console.log('destro')
     // // this.subscription.unsubscribe();
   }
 
   public onSubmit(): void {
-    // console.log('submit');
-    // console.log(this.cardForm.value);
     if (this.isEditMode) {
       // this.cardService.editCard(this.cardForm.value, this.cardToEditIndex);
 

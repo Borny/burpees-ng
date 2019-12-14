@@ -42,7 +42,6 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
     this.dataStorageService.fetchCards()
       .subscribe(
         (cards: Card[]) => {
-          console.log(cards);
           this.cards = cards;
 
           this.cards.map((card, index) => card.day = (index + 1).toString());

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ViewAuthComponent } from './view-auth.component';
 import { FormsModule } from '@angular/forms';
+import { AuthRouting } from './auth-routing.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    AuthRouting
   ],
   exports: [],
   providers: [],

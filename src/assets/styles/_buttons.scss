@@ -2,6 +2,8 @@
     padding: 15px 0;
     display: flex;
     justify-content: space-around;
+    flex-flow: column;
+    height: 100px;
 }
 
 .btn {
@@ -28,7 +30,7 @@
     }
     &-confirm {
         color: $white;
-        background: $green;
+        background: $apple;
     }
     &-standard {
         color: $white;

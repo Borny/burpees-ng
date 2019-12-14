@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NgForm, FormGroup, FormControl, Validators, Form } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
@@ -14,7 +14,7 @@ import { AuthService } from '../../shared/services/auth.service';
   selector: 'view-auth',
   templateUrl: './view-auth.component.html'
 })
-export class ViewAuthComponent implements OnInit, OnDestroy {
+export class ViewAuthComponent implements OnInit {
   public isLoginMode = true;
 
   public authFormReactive: FormGroup;
@@ -23,17 +23,13 @@ export class ViewAuthComponent implements OnInit, OnDestroy {
   public success = null;
 
   constructor(private authService: AuthService, private router: Router) {
-
   }
 
   ngOnInit(): void {
     this._initForm();
   }
-  ngOnDestroy(): void {
-  }
 
   // public onSubmitReactive() {
-  //   console.log(this.authFormReactive.value);
   // }
 
   public onSubmitTemplate(form: NgForm) {

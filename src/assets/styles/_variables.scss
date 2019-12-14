@@ -1,4 +1,6 @@
+///////////
 // COLORS
+///////////
 
 $white: #fff;
 $black: #000;
@@ -10,4 +12,46 @@ $monza: #b9041a;
 
 $endeavour: #005aaa;
 
-$green: #47ba47;
+$apple: #47ba47;
+
+//////////
+// FONTS
+//////////
+
+// Roboto
+$fontRoboto: "Roboto", sans-serif;
+
+// Base 02
+$base02-path: "/assets/fonts/base_02/Base02.ttf";
+
+@font-face {
+    font-family: Base02;
+    src: url("/assets/fonts/base_02/Base02.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Sport;
+    src: url("/assets/fonts/TrueType/SFSportsNight.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+////////////////
+// FONT WEIGHT
+////////////////
+
+$fontWeightLight: 300;
+$fontWeightBase: 400;
+$fontWeightBold: 500;
+$fontWeightBolder: 700;
+
+/////////////////
+// SCREEN SIZES
+/////////////////
+
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;

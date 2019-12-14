@@ -23,11 +23,7 @@ export class DataStorageService {
       this.URL,
       cardData
     )
-      .subscribe(
-        responseData => {
-          console.log(responseData);
-        }
-      );
+      .subscribe();
   }
 
   public editCard(cardData: Card) {
@@ -35,11 +31,7 @@ export class DataStorageService {
       this.URL,
       cardData
     )
-      .subscribe(
-        responseData => {
-          console.log(responseData);
-        }
-      );
+      .subscribe();
   }
 
   public fetchCards(): Observable<any[]> {

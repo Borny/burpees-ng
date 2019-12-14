@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 
 
-import { AppRouting } from '../../app-routing.module';
+import { NotFoundRouting } from './not-found-routing.module';
 import { View404Component } from './view-404.component';
 
 @NgModule({
   declarations: [View404Component],
   imports: [
-    AppRouting,
+    NotFoundRouting
   ],
   exports: [],
   providers: []
