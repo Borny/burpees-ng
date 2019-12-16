@@ -19,20 +19,27 @@ export class DataStorageService {
   }
 
   public postCard(cardData: Card) {
-    this.http.post(
-      this.URL,
-      cardData
-    )
+    this.authService.user$.pipe(
+      take(1),
+      exhaustMap(user => {
+        return this.http.post(
+          this.URL,
+          cardData,
+          {
+            params: new HttpParams().set('auth', user.token)
+          }
+        );
+      }))
       .subscribe();
   }
 
-  public editCard(cardData: Card) {
-    this.http.put(
-      this.URL,
-      cardData
-    )
-      .subscribe();
-  }
+  // public editCard(cardData: Card) {
+  //   this.http.put(
+  //     this.URL,
+  //     cardData
+  //   )
+  //     .subscribe();
+  // }
 
   public fetchCards(): Observable<any[]> {
     return this.authService.user$.pipe(
@@ -66,7 +73,16 @@ export class DataStorageService {
   }
 
   public deleteCards(): void {
-    this.http.delete(this.URL)
+    this.authService.user$.pipe(
+      take(1),
+      exhaustMap(user => {
+        return this.http.delete(
+          this.URL,
+          {
+            params: new HttpParams().set('auth', user.token)
+          }
+        );
+      }))
       .subscribe(() => {
         this.cardsListChanged$.next(this.cards.slice());
       });

@@ -52,7 +52,7 @@ export class OrganismCardFormComponent implements OnInit, OnDestroy {
     if (this.isEditMode) {
       // this.cardService.editCard(this.cardForm.value, this.cardToEditIndex);
 
-      this.dataStorageService.editCard(this.cardForm.value);
+      // this.dataStorageService.editCard(this.cardForm.value);
       this.cardForm.reset();
       this.editButtonEvent$.emit();
     } else {

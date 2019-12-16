@@ -8,7 +8,7 @@
 
 <div class="header-title">
   <p>{{ heading | uppercase }}</p>
-  <p>{{ cardCount }} / 100</p>
+  <span>{{ cardCount }} / 100</span>
 </div>
 
 <button *ngIf="isAuthenticated" (click)="onLogOut()" class="btn btn-delete">

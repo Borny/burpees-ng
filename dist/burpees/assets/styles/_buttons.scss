@@ -1,0 +1,54 @@
+.btn-container {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column;
+    height: 100px;
+}
+
+.btn {
+    padding: 5px 15px;
+    border-radius: 4px;
+    color: $grey;
+    background: $white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &-fetch {
+        color: $white;
+        background: $endeavour;
+    }
+    &-delete {
+        color: $white;
+        background: $monza;
+    }
+    &-confirm {
+        color: $white;
+        background: $apple;
+    }
+    &-standard {
+        color: $white;
+        background: $endeavour;
+    }
+}
+
+.btn-link {
+    padding: 5px 15px;
+    border-radius: 4px;
+    color: $codGray;
+    background: $white;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+        color: $white;
+        background: $endeavour;
+    }
+}
