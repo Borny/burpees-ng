@@ -1,0 +1,45 @@
+.dropdown__container {
+    position: relative;
+    &.open {
+        .dropdown__menu {
+            visibility: visible;
+            height: inherit;
+            opacity: 1;
+        }
+    }
+}
+
+.dropdown__trigger {
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 0.5rem;
+    border-radius: 4px;
+    &:hover {
+        color: $zombie;
+        background: $lynch;
+    }
+}
+
+.dropdown__menu {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    min-width: 100px;
+    background: $white;
+    transition: 0.4s;
+    animation-timing-function: linear;
+    transform-style: preserve-3d;
+    visibility: hidden;
+    height: 0;
+    opacity: 0;
+    &--item {
+        transition: 0.2s;
+        padding: 0.5rem;
+        border-bottom: 1px solid $mineShaft;
+        cursor: pointer;
+        &:hover {
+            color: $zombie;
+            background: $lynch;
+        }
+    }
+}

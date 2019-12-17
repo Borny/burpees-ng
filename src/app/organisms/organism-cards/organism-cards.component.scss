@@ -1,9 +1,13 @@
+@import "../../../assets/styles/tools";
+
 :host {
-  flex: 1;
+    flex: 1;
 }
 
 .card-container {
-  display: grid;
-  grid-template: auto / repeat(6, 1fr);
-  grid-gap: 16px;
+    display: grid;
+    grid-gap: 16px;
+    @include screen-sm {
+        grid-template: auto / repeat(6, 1fr);
+    }
 }

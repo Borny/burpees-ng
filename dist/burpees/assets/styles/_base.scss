@@ -12,13 +12,14 @@
 // It is set on the body font-size and varies depending on screen sizes
 html {
     font-size: 100%;
-    min-height: 100%;
+    height: 100%;
 }
 
 body {
     height: 100%;
     font-size: 0.8em;
     font-family: $fontRoboto;
+    background: $color-secondary;
     @media (min-width: $screen-xs) {
         font-size: 0.9em;
     }
@@ -101,6 +102,10 @@ textarea {
     display: none !important;
 }
 
+.mobile-hidden {
+    display: none !important;
+}
+
 //////////
 // HACKS
 //////////
@@ -128,6 +133,15 @@ input::-ms-clear {
 }
 
 //CANCELS THE YELLOW BACKGROUND COLOR ON INPUT AUTOFILL ON CHROME
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px white inset;
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
 }

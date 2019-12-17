@@ -6,6 +6,9 @@ $white: #fff;
 $black: #000;
 
 $grey: #ccc;
+$zombie: #e8d0a6;
+$lynch: #62778a;
+$mineShaft: #282828;
 $codGray: #1a1a1a;
 
 $monza: #b9041a;
@@ -13,6 +16,10 @@ $monza: #b9041a;
 $endeavour: #005aaa;
 
 $apple: #47ba47;
+
+$color-primary: $mineShaft;
+$color-secondary: $lynch;
+$color-ternary: $zombie;
 
 //////////
 // FONTS
@@ -46,6 +53,11 @@ $fontWeightLight: 300;
 $fontWeightBase: 400;
 $fontWeightBold: 500;
 $fontWeightBolder: 700;
+
+/////////////////
+// Z-INDEX
+/////////////////
+$zindex-modal: 50;
 
 /////////////////
 // SCREEN SIZES

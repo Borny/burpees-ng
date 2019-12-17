@@ -21,7 +21,8 @@ export class OrganismCardFormComponent implements OnInit, OnDestroy {
   @Input() title: string;
   @Input() cta: string;
 
-  @Output() editButtonEvent$ = new EventEmitter<boolean>();
+  // @Output() editButtonEvent$ = new EventEmitter<boolean>();
+  @Output() cancelButtonEvent$ = new EventEmitter<void>();
 
   // private subscription: Subscription;
   // destroy = new Subject();
@@ -49,16 +50,20 @@ export class OrganismCardFormComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(): void {
-    if (this.isEditMode) {
-      // this.cardService.editCard(this.cardForm.value, this.cardToEditIndex);
+    // if (this.isEditMode) {
+    // this.cardService.editCard(this.cardForm.value, this.cardToEditIndex);
 
-      // this.dataStorageService.editCard(this.cardForm.value);
-      this.cardForm.reset();
-      this.editButtonEvent$.emit();
-    } else {
-      this.addCard(this.cardForm.value);
-    }
+    // this.dataStorageService.editCard(this.cardForm.value);
+    // this.cardForm.reset();
+    // this.editButtonEvent$.emit();
+    // } else {
+    this.addCard(this.cardForm.value);
+    // }
     this.inputTime.nativeElement.focus();
+  }
+
+  public cancel(): void {
+    this.cancelButtonEvent$.emit();
   }
 
   private initForm(): void {

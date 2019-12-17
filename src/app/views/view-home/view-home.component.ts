@@ -11,8 +11,6 @@ import { Subscription } from 'rxjs';
 })
 
 export class ViewHomeComponent implements OnInit, OnDestroy {
-
-
   public title: string;
   public cta: string;
 
@@ -60,6 +58,10 @@ export class ViewHomeComponent implements OnInit, OnDestroy {
     this.displayCardForm = false;
     this.isEditMode = false;
     this.setMode();
+  }
+
+  public closeModal(): void {
+    this.displayCardForm = false;
   }
 
   public setMode(): void {

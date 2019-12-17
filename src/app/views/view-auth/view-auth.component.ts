@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -7,26 +7,33 @@ import { Observable } from 'rxjs';
 import { AuthResponseData } from '../../shared/models/auth-response.model';
 import { AuthService } from '../../shared/services/auth.service';
 
-
-
-
 @Component({
   selector: 'view-auth',
-  templateUrl: './view-auth.component.html'
+  templateUrl: './view-auth.component.html',
+  styleUrls: ['./view-auth.component.scss']
 })
-export class ViewAuthComponent implements OnInit {
+export class ViewAuthComponent implements OnInit, AfterViewChecked {
+
+  @ViewChild('inputEmail', { static: true }) emailInput: ElementRef;
+
   public isLoginMode = true;
 
   public authFormReactive: FormGroup;
   public isFetching = false;
   public error = null;
   public success = null;
+  public logginIn = 'Loggin In...';
 
   constructor(private authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
     this._initForm();
+    console.log(this.emailInput)
+  }
+
+  ngAfterViewChecked(): void {
+    console.log(this.emailInput)
   }
 
   // public onSubmitReactive() {

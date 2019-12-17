@@ -18,28 +18,36 @@
   </button>
 </form> -->
 
+<h2 class="title">
+  Burpees <br />
+  Challenge
+</h2>
+
 <p *ngIf="error" class="alert">{{ error }}</p>
 <p *ngIf="success" class="success">{{ success }}</p>
 
 <form
   class="auth-form"
-  *ngIf="!isFetching"
   #authForm="ngForm"
   (ngSubmit)="onSubmitTemplate(authForm)"
 >
   <div class="form-group">
-    <label class="form-label" for="email">Email</label>
     <input
       class="form-control"
       id="email"
       name="email"
       type="email"
+      #inputEmail
       ngModel
       required
     />
+    <label class="form-label" for="email">
+      <span class="form-label-content">
+        Email
+      </span>
+    </label>
   </div>
   <div class="form-group">
-    <label class="form-label" for="password" for="password">Password</label>
     <input
       class="form-control"
       id="password"
@@ -50,15 +58,26 @@
       password
       minlength="1"
     />
+    <label class="form-label" for="password">
+      <span class="form-label-content">
+        Password
+      </span>
+    </label>
   </div>
   <div class="btn-container">
-    <button class="btn btn-confirm" type="submit" [disabled]="authForm.invalid">
+    <button class="btn btn-confirm" *ngIf="isFetching">{{ logginIn }}</button>
+    <button
+      *ngIf="!isFetching"
+      class="btn btn-confirm"
+      type="submit"
+      [disabled]="authForm.invalid"
+    >
       {{ isLoginMode ? "Log In" : "Sign Up" }}
     </button>
     <button class="btn btn-standard" type="button" (click)="onSwitchMode()">
-      Switch to {{ isLoginMode ? "Sign Up" : "Log In" }}
+      {{ "Switch" | uppercase }}
     </button>
   </div>
 </form>
 
-<h2 *ngIf="isFetching">Fetching...</h2>
+<!-- <h2 *ngIf="isFetching">Fetching...</h2> -->

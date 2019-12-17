@@ -3,6 +3,8 @@
 @import "./assets/styles/base";
 
 @import "./assets/styles/buttons";
+@import "./assets/styles/form";
+@import "./assets/styles/dropdown";
 
 .alert {
     color: red;
@@ -20,28 +22,10 @@
 
 .auth-form {
     display: flex;
-    margin: auto;
     flex-flow: column;
     justify-content: center;
-    margin: auto;
     width: 300px;
-}
-
-.form-group {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    padding: 15px 0;
-}
-
-.form-label {
-    margin: 0 0 5px;
-}
-
-.form-control {
-    padding: 5px;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid $black;
-    outline: none;
+    @include screen-sm {
+        padding: 0 0 100px;
+    }
 }

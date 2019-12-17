@@ -1,0 +1,23 @@
+@import "../../../assets/styles/tools";
+
+:host {
+    display: flex;
+    flex: 1;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.title {
+    color: $color-ternary;
+    font-family: Base02;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    transform: rotate(-10deg);
+    @include screen-sm {
+        font-size: 6rem;
+    }
+}

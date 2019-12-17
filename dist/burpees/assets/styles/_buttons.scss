@@ -2,12 +2,13 @@
     padding: 15px 0;
     display: flex;
     justify-content: space-around;
-    flex-flow: column;
-    height: 100px;
+    max-width: 280px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .btn {
-    padding: 5px 15px;
+    padding: 12px;
     border-radius: 4px;
     color: $grey;
     background: $white;
@@ -19,6 +20,9 @@
         opacity: 0.5;
         cursor: not-allowed;
     }
+    &:focus {
+        outline: none;
+    }
 
     &-fetch {
         color: $white;
@@ -29,12 +33,17 @@
         background: $monza;
     }
     &-confirm {
+        flex: 1;
+        font-family: Base02;
         color: $white;
-        background: $apple;
+        background: $monza;
+        font-size: 16px;
+        margin: 0 10px 0 0;
     }
     &-standard {
         color: $white;
         background: $endeavour;
+        font-weight: bold;
     }
 }
 
