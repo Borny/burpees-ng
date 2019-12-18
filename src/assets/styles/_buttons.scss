@@ -35,14 +35,15 @@
     &-confirm {
         flex: 1;
         font-family: Base02;
-        color: $white;
-        background: $monza;
+        color: $color-primary;
+        background: $color-ternary;
         font-size: 16px;
         margin: 0 10px 0 0;
     }
     &-standard {
-        color: $white;
-        background: $endeavour;
+        font-family: Base02;
+        color: $color-ternary;
+        background: $color-primary;
         font-weight: bold;
     }
 }

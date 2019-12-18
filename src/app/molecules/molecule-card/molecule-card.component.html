@@ -1,11 +1,24 @@
 <header class="card__header">
   <p class="card__header--content">
-    <span class="mobile-hidden">Day</span> {{ card.day }}
+    <span class="mobile-hidden">Day</span>
+    {{ card.day }}
   </p>
 </header>
 <main class="card__body">
-  <p class="card__body--text">Time {{ card.time }}</p>
-  <p class="card__body--text">Set {{ card.set }}</p>
+  <p class="card__body--text" *ngIf="card.set !== 'unbroken'">
+    <span>Time</span>
+    <span>
+      {{ card.time }}
+    </span>
+  </p>
+  <p class="card__body--text">
+    <span *ngIf="card.set !== 'unbroken'">
+      Set
+    </span>
+    <span [ngClass]="{ unbroken: card.set === 'unbroken' }">
+      {{ card.set }}
+    </span>
+  </p>
 </main>
 
 <!-- Not ready yet -->

@@ -107,3 +107,27 @@ the request"
 - api endpoint: url
 - request body: data sent"	 																							
 																								
+
+## PWA - Service Workers
+
+- ng add @angular/pwa
+Installs the following files:
+- manifest.json : loads the icons that will be displayed on the home screen
+- ngsw-config.json : **not sure** configures the service worker.
+- Adds serviceWorker module to the app module : it acts like a **proxy**, it catches the outgoing request and treats them.... **to complete**
+
+The **service worker** will cache certain resources that will contain a *hash*. Then all new prod build will update the service worker and update the resources
+
+Add this property to the ngsw-config.json file:
+  "dataGroups": [
+    {
+      "name": "posts",
+      "urls": [**urls that will fetch data**],
+      "cacheConfig": {
+        "maxSize": 5,
+        "maxAge": "6h",
+        "timeout": "10s",
+        "strategy": "freshness" // or performance
+      }
+    }
+  ]

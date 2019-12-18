@@ -7,16 +7,19 @@
 }
 
 .btn-add {
+    color: $color-ternary;
     position: fixed;
+    font-weight: bold;
+    font-size: 1.3rem;
     bottom: 1rem;
     right: 1rem;
-    background: $endeavour;
+    background: $color-primary;
     border-radius: 50px;
     width: 40px;
     height: 40px;
     transition: ease-in 0.2s;
     cursor: pointer;
     &:hover {
-        background: lighten($endeavour, 10%);
+        background: lighten($color-primary, 10%);
     }
 }

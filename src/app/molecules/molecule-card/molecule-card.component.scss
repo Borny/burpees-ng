@@ -3,7 +3,7 @@
 :host {
     width: 100%;
     display: flex;
-    border: 1px solid white;
+    border: 1px solid $color-ternary;
     border-radius: 4px;
     align-items: center;
     padding: 1rem;
@@ -14,16 +14,20 @@
 
 .card__header {
     color: $mineShaft;
-    // background: $black;
     display: flex;
     &--content {
+        font-size: 2rem;
+        font-family: Base02;
         border-radius: 40px;
         height: 30px;
         display: flex;
         width: 30px;
         justify-content: center;
         align-items: center;
-        background: $grey;
+        transform: rotate(-10deg);
+        &.unbrokenTitle {
+            color: $color-ternary;
+        }
     }
 }
 
@@ -36,7 +40,16 @@
         flex: 1;
         padding: 0 1rem 0;
         &:first-child {
-            border-right: 1px solid $grey;
+            border-right: 1px solid $color-ternary;
+        }
+        .unbroken {
+            font-family: Base02;
+            color: $color-ternary;
+            transform: rotate(-10deg);
+            display: flex;
+            font-size: 1.6rem;
+            justify-content: center;
+            border: none;
         }
     }
 }
