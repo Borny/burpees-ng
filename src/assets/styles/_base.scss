@@ -104,6 +104,9 @@ textarea {
 
 .mobile-hidden {
     display: none !important;
+    @include screen-sm() {
+        display: block !important;
+    }
 }
 
 //////////

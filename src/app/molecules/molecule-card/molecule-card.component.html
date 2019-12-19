@@ -1,13 +1,13 @@
 <header class="card__header">
   <p class="card__header--content">
-    <span class="mobile-hidden">Day</span>
+    <span class="mobile-hidden card__header--content-day">Day</span>
     {{ card.day }}
   </p>
 </header>
 <main class="card__body">
-  <p class="card__body--text" *ngIf="card.set !== 'unbroken'">
+  <p class="card__body--text">
     <span>Time</span>
-    <span>
+    <span class="card__body--text--variable">
       {{ card.time }}
     </span>
   </p>
@@ -15,7 +15,10 @@
     <span *ngIf="card.set !== 'unbroken'">
       Set
     </span>
-    <span [ngClass]="{ unbroken: card.set === 'unbroken' }">
+    <span
+      [ngClass]="{ unbroken: card.set === 'unbroken' }"
+      class="card__body--text--variable"
+    >
       {{ card.set }}
     </span>
   </p>

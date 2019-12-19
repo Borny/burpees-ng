@@ -6,13 +6,16 @@
   <a class="btn-link" routerLink="/detail">Detail</a>
 </div> -->
 
-<div class="header-title">
+<div class="header__title">
   <p>{{ heading | uppercase }}</p>
-  <span>{{ cardCount }} / 100</span>
+  <!-- <span>{{ cardCount }} / 100</span> -->
 </div>
 
 <div class="dropdown__container" dropdown>
-  <button class="dropdown__trigger">burger</button>
+  <div class="dropdown__trigger">
+    <span></span>
+  </div>
+
   <ul class="dropdown__menu">
     <li
       *ngIf="isAuthenticated"

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Output, EventEmitter, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Card } from '../../shared/models/card/card.model';
@@ -24,6 +24,7 @@ export class OrganismCardFormComponent implements OnInit, OnDestroy {
   // @Output() editButtonEvent$ = new EventEmitter<boolean>();
   @Output() cancelButtonEvent$ = new EventEmitter<void>();
 
+
   // private subscription: Subscription;
   // destroy = new Subject();
 
@@ -33,6 +34,12 @@ export class OrganismCardFormComponent implements OnInit, OnDestroy {
   public readonly EDIT_MODE = FormMode.EDIT;
   public readonly EDIT = 'Edit day';
   public readonly CREATE = 'Create';
+
+  @HostListener('window:keyup', ['$event']) closeModal(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      this.cancel();
+    }
+  }
 
   constructor(
     private dataStorageService: DataStorageService,

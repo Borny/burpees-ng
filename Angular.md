@@ -60,7 +60,7 @@ if using a relative route use:
 "																								
 "Route parameter
 "	"pathToLoad/:whateverParameterYouWant
-"																								
+"	
 "Fetching route param
 "	"import ActivatedRoute
 this.activatedRoute.snapshop.params['paramName']"																								
@@ -108,6 +108,11 @@ the request"
 - request body: data sent"	 																							
 																								
 
+## SSR
+
+- ng add @nguniversal/express-engine
+- 
+
 ## PWA - Service Workers
 
 - ng add @angular/pwa
@@ -121,7 +126,7 @@ The **service worker** will cache certain resources that will contain a *hash*. 
 Add this property to the ngsw-config.json file:
   "dataGroups": [
     {
-      "name": "posts",
+      "name": "[**name**]",
       "urls": [**urls that will fetch data**],
       "cacheConfig": {
         "maxSize": 5,
