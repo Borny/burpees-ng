@@ -24,6 +24,17 @@
         outline: none;
     }
 
+    &-primary {
+        font-family: Base02;
+        color: $color-primary;
+        background: $color-ternary;
+    }
+    &-secondary {
+        font-family: Base02;
+        color: $color-primary;
+        background: $color-ternary;
+    }
+
     &-fetch {
         color: $white;
         background: $endeavour;
@@ -34,14 +45,12 @@
     }
     &-confirm {
         flex: 1;
-        font-family: Base02;
         color: $color-primary;
         background: $color-ternary;
         font-size: 16px;
         margin: 0 10px 0 0;
     }
     &-standard {
-        font-family: Base02;
         color: $color-ternary;
         background: $color-primary;
         font-weight: bold;

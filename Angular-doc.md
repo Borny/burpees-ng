@@ -1,19 +1,3 @@
-Binding																									
-Property binding	[ChildPropertyName]="parentPropertyName"																								
-Two way data binding	[(ngModel)]="twoWayDataBinding"																								
-Event binding	(event)="eventBinding"																								
-Directives																									
-Structural directives	"Removes/replace element from the DOM :
-*ngIf, *ngFor"																								
-Attribute directives	"Changes/modifies elements from the DOM : 
-ngStyle, ngClass"																								
-@HostListener	"Best way to build a directive and listen to event
-using Renderer2 and ElementRef"																								
-@HostBinding	"Replaces the use of Renderer2
-"						"REACTIVE PROGRAMMING:
-ASYNCHRONOUS PROGRAMMING ???
-SUBSCRIBING TO AN EVENT AND NOT WAITING FOR IT HAPPEN..."																		
-																									
 Services																									
 Declared in the app.module : 	can be accessed by all components/services/directives																								
 Declared in the app.component : 	can be accessed by all components but not the services																								
@@ -107,32 +91,3 @@ the request"
 - api endpoint: url
 - request body: data sent"	 																							
 																								
-
-## SSR
-
-- ng add @nguniversal/express-engine
-- 
-
-## PWA - Service Workers
-
-- ng add @angular/pwa
-Installs the following files:
-- manifest.json : loads the icons that will be displayed on the home screen
-- ngsw-config.json : **not sure** configures the service worker.
-- Adds serviceWorker module to the app module : it acts like a **proxy**, it catches the outgoing request and treats them.... **to complete**
-
-The **service worker** will cache certain resources that will contain a *hash*. Then all new prod build will update the service worker and update the resources
-
-Add this property to the ngsw-config.json file:
-  "dataGroups": [
-    {
-      "name": "[**name**]",
-      "urls": [**urls that will fetch data**],
-      "cacheConfig": {
-        "maxSize": 5,
-        "maxAge": "6h",
-        "timeout": "10s",
-        "strategy": "freshness" // or performance
-      }
-    }
-  ]

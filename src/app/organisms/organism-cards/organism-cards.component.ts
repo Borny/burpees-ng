@@ -71,4 +71,8 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
     isLast ? this.cardService.deleteCard(index) : this.cardService.clearCard(index);
   }
 
+  public trackByFn(index: number, item: Card) {
+    return item.id;
+  }
+
 }

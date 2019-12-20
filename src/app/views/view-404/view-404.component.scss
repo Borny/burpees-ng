@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    padding: 2rem;
+    font-size: 3rem;
+    font-family: Base02;
+}

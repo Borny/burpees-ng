@@ -30,11 +30,14 @@
     </div>
 
     <div class="btn--container">
-      <button class="btn" type="submit" [disabled]="cardForm.invalid">
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="cardForm.invalid"
+      >
         {{ cta }}
       </button>
-
-      <button class="btn" type="button" (click)="cancel()">
+      <button class="btn btn-primary" type="button" (click)="cancel()">
         Cancel
       </button>
     </div>

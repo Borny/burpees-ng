@@ -15,7 +15,7 @@
 <ng-container *ngIf="cards && !fetching">
   <div class="card-container">
     <molecule-card
-      *ngFor="let card of cards; index as i; last as isLast"
+      *ngFor="let card of cards; index as i; last as isLast; trackBy: trackByFn"
       [card]="card"
       [index]="i"
       [isLast]="isLast"

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'view-404',
@@ -10,11 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class View404Component {
 
   constructor(private router: Router) {
-
   }
 
   public navigate() {
-    this.router.navigate(['./home']);
+    this.router.navigate(['./auth']);
   }
 
 }

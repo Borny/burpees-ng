@@ -65,16 +65,22 @@
     </label>
   </div>
   <div class="btn-container">
-    <button class="btn btn-confirm" *ngIf="isFetching">{{ logginIn }}</button>
+    <button class="btn btn-primary btn-confirm" *ngIf="isFetching">
+      {{ logginIn }}
+    </button>
     <button
       *ngIf="!isFetching"
-      class="btn btn-confirm"
+      class="btn btn-primary btn-confirm"
       type="submit"
       [disabled]="authForm.invalid"
     >
       {{ isLoginMode ? "Log In" : "Sign Up" }}
     </button>
-    <button class="btn btn-standard" type="button" (click)="onSwitchMode()">
+    <button
+      class="btn btn-secondary btn-standard"
+      type="button"
+      (click)="onSwitchMode()"
+    >
       {{ "Switch" | uppercase }}
     </button>
   </div>
