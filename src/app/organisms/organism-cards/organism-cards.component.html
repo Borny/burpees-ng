@@ -1,15 +1,6 @@
-<!-- <button type="button" class="btn btn-fetch" (click)="onGetCards()">
-  Get cards
-</button>
-<button type="button" class="btn btn-delete" (click)="onDeleteCards()">
-  Delete cards
-</button> -->
-
-<p *ngIf="!cards.length && !fetching && !error">
+<p class="alert" *ngIf="!cards.length && !fetching && !error">
   There are no cards to display...please add one
 </p>
-
-<!-- <p *ngIf="fetching">Fetching...</p> -->
 
 <loader *ngIf="fetching"></loader>
 <p *ngIf="error && !fetching">{{ error }}</p>

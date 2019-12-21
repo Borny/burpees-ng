@@ -1,0 +1,148 @@
+{
+  "configVersion": 1,
+  "timestamp": 1576927042296,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/1-es2015.fa9e1651673d4f3f1955.js",
+        "/1-es5.fa9e1651673d4f3f1955.js",
+        "/6-es2015.b24c31112f730aff73db.js",
+        "/6-es5.b24c31112f730aff73db.js",
+        "/7-es2015.6d6e6dc6b40d759ed32e.js",
+        "/7-es5.6d6e6dc6b40d759ed32e.js",
+        "/8-es2015.c78cf6ab78ba6a9617ff.js",
+        "/8-es5.c78cf6ab78ba6a9617ff.js",
+        "/index.html",
+        "/main-es2015.8d41d03e2081f7e7e63c.js",
+        "/main-es5.8d41d03e2081f7e7e63c.js",
+        "/manifest.webmanifest",
+        "/polyfills-es2015.79b5019f4dff069483c4.js",
+        "/polyfills-es5.7d7d156430c9cd92193e.js",
+        "/runtime-es2015.c894ebce13a6027403ea.js",
+        "/runtime-es5.c894ebce13a6027403ea.js",
+        "/styles.a3878ac7d241aa234dc3.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/fonts/TrueType/SFSportsNight.ttf",
+        "/assets/fonts/TrueType/SFSportsNightAltUpright.ttf",
+        "/assets/fonts/TrueType/SFSportsNightAlternate.ttf",
+        "/assets/fonts/TrueType/SFSportsNightNS.ttf",
+        "/assets/fonts/TrueType/SFSportsNightNSAltUpright.ttf",
+        "/assets/fonts/TrueType/SFSportsNightNSAlternate.ttf",
+        "/assets/fonts/TrueType/SFSportsNightNSUpright.ttf",
+        "/assets/fonts/TrueType/SFSportsNightUpright.ttf",
+        "/assets/fonts/base_02/Base 02.jpg",
+        "/assets/fonts/base_02/Base02.ttf",
+        "/assets/fonts/base_02/Readme.txt",
+        "/assets/icons/favicon.png",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/styles/_base.scss",
+        "/assets/styles/_buttons.scss",
+        "/assets/styles/_dropdown.scss",
+        "/assets/styles/_form.scss",
+        "/assets/styles/_mixins.scss",
+        "/assets/styles/_normalize.scss",
+        "/assets/styles/_placeholders.scss",
+        "/assets/styles/_tools.scss",
+        "/assets/styles/_variables.scss"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "cards",
+      "patterns": [
+        "https:\\/\\/ng-burpees\\.firebaseio\\.com\\/cards\\.json"
+      ],
+      "strategy": "freshness",
+      "maxSize": 5,
+      "maxAge": 21600000,
+      "timeoutMs": 10000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/1-es2015.fa9e1651673d4f3f1955.js": "f60b64f2bb069a163e2840da93d202ec22f7429c",
+    "/1-es5.fa9e1651673d4f3f1955.js": "b060433bfa01e77cbf4a46df8b15be99785024fc",
+    "/6-es2015.b24c31112f730aff73db.js": "932542339487e6ba29687c47aaec2337f48cdf60",
+    "/6-es5.b24c31112f730aff73db.js": "3f2346a09de535b4105e5da1913bb152efbb23a0",
+    "/7-es2015.6d6e6dc6b40d759ed32e.js": "0ab19a81e0936d8c9f22289b040001823e4648c5",
+    "/7-es5.6d6e6dc6b40d759ed32e.js": "2da3550751f0f35b8a707581ed87046ddeb8a82a",
+    "/8-es2015.c78cf6ab78ba6a9617ff.js": "40fe39f4dcaf3b024d6022a74233a5eea9298f69",
+    "/8-es5.c78cf6ab78ba6a9617ff.js": "6e885ba0bc1b9a3b11f553327c8d0d7aad2b564e",
+    "/assets/fonts/TrueType/SFSportsNight.ttf": "7e306113532274257db31f2d20fd4019a667133c",
+    "/assets/fonts/TrueType/SFSportsNightAltUpright.ttf": "e7d88891bd3135daaa1196f52695b129acf89b34",
+    "/assets/fonts/TrueType/SFSportsNightAlternate.ttf": "98b663f96dea5b8b3f51b9a75a65e55a528dfef2",
+    "/assets/fonts/TrueType/SFSportsNightNS.ttf": "35043f152e67c4910a5e5ac1dd1d8b7127a143c1",
+    "/assets/fonts/TrueType/SFSportsNightNSAltUpright.ttf": "e0cd9fc4f8926ac265b21ae7b9298d972197231a",
+    "/assets/fonts/TrueType/SFSportsNightNSAlternate.ttf": "8ba1b11d0ac45fd5ebd4268a258e284d9eb670ef",
+    "/assets/fonts/TrueType/SFSportsNightNSUpright.ttf": "d020ed34cb277730650d47f2fcaa4cce39456712",
+    "/assets/fonts/TrueType/SFSportsNightUpright.ttf": "9e849eb88a1f95f33ba378cbef7fbfc47e74751a",
+    "/assets/fonts/base_02/Base 02.jpg": "a9922322771aa1d00391d2a0bd092e7b8eca4db2",
+    "/assets/fonts/base_02/Base02.ttf": "fb47bbbb2177a606d0f4fbd661e54524aa7030a8",
+    "/assets/fonts/base_02/Readme.txt": "0fcf20b46d2c2a0031f62c7da37b1a5d735503e7",
+    "/assets/icons/favicon.png": "e3fd53452e5fe43aef18510b1deb0b44bb4e53d6",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/styles/_base.scss": "a3d8f1bcd80845faab561ce0abd1cfa5367fc7fc",
+    "/assets/styles/_buttons.scss": "938d773373ca48e559d113159b8a747a73b002c6",
+    "/assets/styles/_dropdown.scss": "daccd42d1aa6d2d5e76da61a957056973378e4e1",
+    "/assets/styles/_form.scss": "dcdc756534a2fc259d36a72cdf67ba6f887200d0",
+    "/assets/styles/_mixins.scss": "2fd292f3158b093b8eae3c6273052bc0faf484b3",
+    "/assets/styles/_normalize.scss": "164a0f22f02be5daaf254b08269aff3f6966f301",
+    "/assets/styles/_placeholders.scss": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "/assets/styles/_tools.scss": "6bff0e628e1bd6953144029d2372c55503387183",
+    "/assets/styles/_variables.scss": "de619c0976ac9b32b3b8952dff72e62a4fa50224",
+    "/index.html": "d0074307c1e62820446cc461f902460c7d6fa77a",
+    "/main-es2015.8d41d03e2081f7e7e63c.js": "dbcfb5753607668404c889d8c7bdb9994f8329fd",
+    "/main-es5.8d41d03e2081f7e7e63c.js": "1b08803ef09ba8d24f12bc92b33b8b7f7e6158c3",
+    "/manifest.webmanifest": "5bce90b4114cc0cd6ca9ecdc51cc8fe7fc90b02e",
+    "/polyfills-es2015.79b5019f4dff069483c4.js": "4475b4672a9d4d6d52c5f786ab4d627e9cabb16f",
+    "/polyfills-es5.7d7d156430c9cd92193e.js": "4476dd4fed8acf373ac74f0ecdf1a091daddbbd5",
+    "/runtime-es2015.c894ebce13a6027403ea.js": "8910cf5469c4887e733c74a5e9944eec80757fa4",
+    "/runtime-es5.c894ebce13a6027403ea.js": "6ed8800a34c6b8a918b0e7a30e34f8c1799bb238",
+    "/styles.a3878ac7d241aa234dc3.css": "5a12e6e9f9eb8c445125ab025da24e0d96495db4"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 
 import { DataStorageService } from '../../shared/services/data-storage.service';
 import { AuthService } from '../../shared/services/auth.service';
+import { Card } from '../../shared/models/card/card.model';
 
 @Component({
   selector: 'organism-header',
@@ -18,12 +19,13 @@ export class OrganismHeaderComponent implements OnInit, OnDestroy {
   public cardCount = 0;
   public isAuthenticated = false;
   public userName = 'Not signed in...';
+  public cards: Card[] = [];
 
   private onDestroy$ = new Subject<void>();
 
   constructor(
-    private cardService: CardService,
-    private dataStorage: DataStorageService,
+    // private cardService: CardService,
+    private dataStorageService: DataStorageService,
     private authService: AuthService) {
   }
 
@@ -49,13 +51,31 @@ export class OrganismHeaderComponent implements OnInit, OnDestroy {
     // this.cardService.cardsListChanged$
     //   .pipe(takeUntil(this.onDestroy$))
     //   .subscribe(cardsList => this.cardCount = cardsList.length);
-    this.dataStorage.cardsListChanged$
-      .pipe(takeUntil(this.onDestroy$))
-      .subscribe(cardsList => this.cardCount = cardsList.length);
+    // this.dataStorage.cardsListChanged$
+    //   .pipe(takeUntil(this.onDestroy$))
+    //   .subscribe(cardsList => this.cardCount = cardsList.length);
   }
 
   public onLogOut() {
     this.authService.logOut();
+  }
+
+  public onDeleteCards(): void {
+    // TODO: delete when finished with the app
+    this.dataStorageService.deleteCards();
+    // this.cardService.deleteCards();
+  }
+
+  public onGetCards(): void {
+    this.dataStorageService.fetchCards()
+      .subscribe((cards: Card[]) => {
+        this.cards = cards;
+        this.cards.map((card, index) => card.day = (index + 1).toString());
+        this.dataStorageService.cardsListChanged$.next(this.cards.slice());
+      }
+      );
+
+    // this.cards = this.cardService.getCards();
   }
 
 }

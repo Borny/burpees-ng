@@ -36,8 +36,6 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
   }
 
   public onGetCards(): void {
-    // TODO: add trackBy to *ngFor
-
     this.fetching = true;
     this.dataStorageService.fetchCards()
       .subscribe(
@@ -46,7 +44,7 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
 
           this.cards.map((card, index) => card.day = (index + 1).toString());
 
-          this.dataStorageService.cardsListChanged$.next(this.cards);
+          this.dataStorageService.cardsListChanged$.next(this.cards.slice());
           this.fetching = false;
         },
         errorMessage => {
@@ -60,11 +58,6 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
 
   public editCard(index: number): void {
     this.cardService.openEditForm$.next(index);
-  }
-
-  public onDeleteCards(): void { // TODO: delete when finished with the app
-    this.dataStorageService.deleteCards();
-    // this.cardService.deleteCards();
   }
 
   public deleteCard(index: number, isLast: boolean): void {

@@ -24,5 +24,19 @@
     >
       Log out
     </li>
+    <li
+      *ngIf="isAuthenticated"
+      (click)="onGetCards()"
+      class="dropdown__menu--item"
+    >
+      Fetch cards
+    </li>
+    <li
+      *ngIf="isAuthenticated"
+      (click)="onDeleteCards()"
+      class="dropdown__menu--item"
+    >
+      Delete cards
+    </li>
   </ul>
 </div>
