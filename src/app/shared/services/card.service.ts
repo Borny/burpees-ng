@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { iCard, Card } from '../models/card/card.model';
+import { Card } from '../models/card/card.model';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { DataStorageService } from './data-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class CardService {
-  private card: iCard;
-  private cards: iCard[] = [];
+  private card: Card;
+  private cards: Card[] = [];
 
   public cardsListChanged$ = new BehaviorSubject(this.cards.slice());
   public openEditForm$: Subject<number> = new Subject();
@@ -16,22 +16,20 @@ export class CardService {
 
   }
 
-  public addCard(card: iCard): void {
-    const newCard = new Card(
-      `${this.cards.length + 1}`,
-      `${Object.values(card)[0]}`,
-      `${Object.values(card)[1]}`,
-    );
+  // public addCard(card: Card): void {
+  //   const newCard = new Card(
+  //     `${this.cards.length + 1}`,
+  //     `${Object.values(card)[0]}`,
+  //     `${Object.values(card)[1]}`,
+  //   );
 
+  //   // this.dataStorageService.postCard(newCard);
 
-    // this.dataStorageService.postCard(newCard);
+  //   this.cards.push(newCard);
+  //   this.cardsListChanged$.next(this.cards.slice());
+  // }
 
-    this.cards.push(newCard);
-    console.log(this.cards)
-    this.cardsListChanged$.next(this.cards.slice());
-  }
-
-  public getCards(): iCard[] {
+  public getCards(): Card[] {
     // this.dataStorageService.fetchCards()
     //   .subscribe((cards) => {
     //     this.cards = cards;
@@ -39,7 +37,7 @@ export class CardService {
     return this.cards.slice();
   }
 
-  public getCard(index: number): iCard {
+  public getCard(index: number): Card {
     return this.cards[index];
   }
 

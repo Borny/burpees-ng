@@ -37,6 +37,8 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
 
   public onGetCards(): void {
     this.fetching = true;
+
+    // Data Storage Service
     this.dataStorageService.fetchCards()
       .subscribe(
         (cards: Card[]) => {
@@ -53,6 +55,7 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
         }
       );
 
+    // Card Service
     // this.cards = this.cardService.getCards();
   }
 

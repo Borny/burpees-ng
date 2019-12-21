@@ -34,7 +34,7 @@
       Fetch cards
     </li>
     <li
-      *ngIf="isAuthenticated"
+      *ngIf="isAuthenticated && hasCard"
       (click)="onDeleteCards()"
       class="dropdown__menu--item"
     >

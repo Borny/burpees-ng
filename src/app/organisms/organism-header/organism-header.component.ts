@@ -20,6 +20,7 @@ export class OrganismHeaderComponent implements OnInit, OnDestroy {
   public isAuthenticated = false;
   public userName = 'Not signed in...';
   public cards: Card[] = [];
+  public hasCard = false;
 
   private onDestroy$ = new Subject<void>();
 
@@ -53,7 +54,10 @@ export class OrganismHeaderComponent implements OnInit, OnDestroy {
     //   .subscribe(cardsList => this.cardCount = cardsList.length);
     this.dataStorageService.cardsListChanged$
       .pipe(takeUntil(this.onDestroy$))
-      .subscribe(cardsList => this.cardCount = cardsList.length);
+      .subscribe(cardsList => {
+        this.cardCount = cardsList.length;
+        this.hasCard = !!cardsList.length;
+      });
   }
 
   public onLogOut() {
