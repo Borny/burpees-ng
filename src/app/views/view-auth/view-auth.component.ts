@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, AfterViewChecked } from '@angular/core';
-import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
@@ -12,32 +12,20 @@ import { AuthService } from '../../shared/services/auth.service';
   templateUrl: './view-auth.component.html',
   styleUrls: ['./view-auth.component.scss']
 })
-export class ViewAuthComponent implements OnInit, AfterViewChecked {
+export class ViewAuthComponent {
 
   @ViewChild('inputEmail', { static: true }) emailInput: ElementRef;
 
   public isLoginMode = true;
 
-  public authFormReactive: FormGroup;
   public isFetching = false;
   public error = null;
   public success = null;
   public logginIn = 'Loggin In...';
+  public signingUp = 'Signing Up...';
 
   constructor(private authService: AuthService, private router: Router) {
   }
-
-  ngOnInit(): void {
-    this._initForm();
-    console.log(this.emailInput)
-  }
-
-  ngAfterViewChecked(): void {
-    console.log(this.emailInput)
-  }
-
-  // public onSubmitReactive() {
-  // }
 
   public onSubmitTemplate(form: NgForm) {
     this.error = null;
@@ -61,10 +49,12 @@ export class ViewAuthComponent implements OnInit, AfterViewChecked {
     authObs.subscribe(
       (resData: AuthResponseData) => {
         this.success = this.isLoginMode
-          ? `Yea you're logged in !!`
-          : `Yea you're signed up !!`;
+          ? `Log in successful!!`
+          : `Sign up successful!!`;
         this.isFetching = false;
-        this.router.navigate(['/home']);
+        setTimeout(() => {
+          this.router.navigate(['/home']);
+        }, 2000);
       },
       (errorMessage) => {
         this.error = errorMessage;
@@ -76,13 +66,6 @@ export class ViewAuthComponent implements OnInit, AfterViewChecked {
 
   public onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
-  }
-
-  private _initForm() {
-    this.authFormReactive = new FormGroup({
-      email: new FormControl('', Validators.compose([Validators.email, Validators.required])),
-      password: new FormControl('', Validators.compose([Validators.minLength(6), Validators.required]))
-    });
   }
 
 }

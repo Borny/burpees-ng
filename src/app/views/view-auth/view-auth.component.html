@@ -23,9 +23,6 @@
   Challenge
 </h2>
 
-<p *ngIf="error" class="alert">{{ error }}</p>
-<p *ngIf="success" class="success">{{ success }}</p>
-
 <form
   class="auth-form"
   #authForm="ngForm"
@@ -40,6 +37,8 @@
       #inputEmail
       ngModel
       required
+      email
+      ngNativeValidate
     />
     <label class="form-label" for="email">
       <span class="form-label-content">
@@ -56,6 +55,7 @@
       ngModel
       required
       password
+      ngNativeValidate
       minlength="1"
     />
     <label class="form-label" for="password">
@@ -66,7 +66,7 @@
   </div>
   <div class="btn-container">
     <button class="btn btn-primary btn-confirm" *ngIf="isFetching">
-      {{ logginIn }}
+      {{ isLoginMode ? logginIn : signingUp }}
     </button>
     <button
       *ngIf="!isFetching"
@@ -84,6 +84,9 @@
       {{ "Switch" | uppercase }}
     </button>
   </div>
-</form>
 
-<!-- <h2 *ngIf="isFetching">Fetching...</h2> -->
+  <div class="message--container">
+    <p *ngIf="error" class="alert">{{ error }}</p>
+    <p *ngIf="success" class="success">{{ success }}</p>
+  </div>
+</form>

@@ -1,7 +1,7 @@
 # Angular Cheat Sheet
-
+___
 ## Binding
-
+___
 Property binding : [childProperty]="[parentProperty]"  
 `@Input() [propertyName]: [type] = [defaultValue]`
 
@@ -18,14 +18,18 @@ Needs to be declared in the TS file.
 Binding to element :  
 `@ViewChild('[elementName]', { static: true }) propertyName: ElementRef;` 
 
+___
 ## HostBinding
+___
 
 Decorator that binds to an element of the DOM. Imported form @angular/core
 
 - Binding to **class** `@HostBinding('class.[className]') propertyName: [type] = [defaultValue];`
-- Binding to **style** `@HostBinding('style.[CSSPropertyName]') propertyName: [type] = [defaultValue];`
+- Binding to **style** `@HostBinding('style.[CSSPropertyName]') propertyName: [type] = [defaultValue];`  
 
+___
 ## HostListener
+___
 
 Decorator that listens to event on a given host. Imported form @angular/core
 
@@ -50,7 +54,9 @@ Declared in the constructor and imported form @angular/core
 Template : `this.renderer.[method]([elementTarget],...)`
 i.e :`this.renderer.setStyle(this.elRef.nativeElemnt)`
 
+___
 ## Directives
+___
 
 ### Structural directives
 
@@ -75,7 +81,9 @@ TS: `public trackByCustomFunctionName(index, item){return index or item.id}`
 
 Changes/modifies elements from the DOM : ngStyle, ngClass
 
+___
 ## Services
+___
 
 Declared with the @Injectable() decorator, needed to import another service
 
@@ -85,7 +93,9 @@ Declared in a component : can be accessed by the child components
 
 **Easier way** : `@Injectable({providedIn: 'root'})` : can be accessed by all components/services/directives
 
+___
 ## Routing
+___
 
 ### Router Module
 Registers the routes for the application
@@ -119,8 +129,9 @@ const routes: Routes = [
 
 export class AppRouting;
 ```
-
+___
 ## Lazy Loading
+___
 Improves performance by only loading the requested components. The initial bundle is then lighter. Each components(could be the views) that needs to be loaded needs to have its own module and routing module.  
 
 **In the app routing module:**
@@ -173,7 +184,6 @@ In the template :
 When a component has some child routes
 Add **children**
 
-
 ### Absolute path 
 Will add the path to the main route(i.e: **localhost:4200** or **www.website.com** )
 ### Relative path
@@ -182,7 +192,6 @@ Will add the path to the current route
 ### Programmatic navigation : navigating from the ts file
 import { Router } from '@angular/router'
 `this.route.navigate('/routeName')`
-
 
 ### Preloading strategy
 
@@ -196,8 +205,137 @@ Add this code to the appRouting Module:
 })
 ```
 
-## Authentication
+### Route Parameters
+*pathToLoad/:whateverParameterYouWant*
 
+### Fetching Route Parameters
+import ActivatedRoute
+this.activatedRoute.snapshot.params['paramName]
+
+### Reactive Route Params
+Subscribe : `this.activatedRoute.params.subscribe()`
+
+### Preserve the params
+Add *queryParamsHandling* to the navigate method
+
+___
+## Forms
+___
+
+### Template Driven Approach
+
+#### Setting up the form in the template
+In the module:
+`import { FormsModule } from '@angular/forms'`
+
+In the template  
+`<form>` tag:  
+- `#[formName]="ngForm"` will bind the form
+- `(ngSubmit)="[onSubmitFunctionName(formName)]"`
+
+`<input>` tag: 
+- `ngModel` will bind the form-control to the form object
+- `name="[formControlName]"` act as a selector
+
+#### Grouping controls 
+Use *ngModelGroup="[formControlGroupName]" #formControlGroupName="ngModelGroup"* in a surrounding div around the form-control you want to group
+
+Only one button should be of type **submit** as it will be the button that the form is listening to for the ngSubmit method. All other buttons should be of type **button**
+
+#### Accessing the form in the ts file
+`onSubmitFunctionName(form: NgForm){}`
+**or**
+use `@ViewChild('formName') formNameProperty: NgForm` to access the form before submitting it
+
+#### Validators
+Add *required, email, password...* directly to the form-control tag  
+**ngNativeValidate** will enable HTML5 validation as Angular disables it by default
+
+#### Resetting the form
+`this.[formName].reset()`  
+**or**  
+`this.[formName].setValue([customValues])` to reset the form with specific values
+
+### Reactive Approach
+In the module: `import {ReactiveFormControl}`
+
+In the ts file:  
+`import { FormGroup } from '@angular/forms'`  
+create the form : `[formName]: FormGroup` and initialize the form in the OnInit interface :  
+``` typescript
+this.[formName] = new FormGroup(
+  '[controlName]' = new FormControl('[defaultValue]', [Validators.required, Validators.email, ...]),
+)
+```
+
+In the template:  
+`<form>` tag:  
+- `[formGroup]="[formName]"`
+- `(ngSubmit)="[onSubmitFunctionName()]"`
+
+`<input>` tag:  
+- `formControl="[controlName]"`
+
+#### Nested controls - FormGroup
+Add a new **FormGroup** to the existing FormGroup:  
+``` typescript
+this.[formName] = new FormGroup({
+  '[formGroupControlName]' = new FormGroup({  
+    '[controlName]' = new FormControl('[defaultValue]', [Validators.required, Validators.email, ...]),
+  }),
+})
+```
+
+In the template`, wrap the controls in a new div with the FormGroupName directive:  
+`formGroupName="[formGroupControlName]"`
+
+
+#### Form Array
+In the template: 
+`*ngFor= let control of getControlsArray(); let i = index`  
+
+in the ts file:  
+'[arrayControlName]' = new FormArray([])
+```
+  getControlsArray(){
+    return (<FormArray>this.[formName].get('[arrayControlName]')).controls
+  }
+```
+
+=> alternative use, **Getter**:  
+In the template:  
+`*ngFor= let control of controlsArray; let i = index`  
+
+In the ts file:  
+```
+  get controlsArray(){
+    return (this.[formName].get('[arrayControlName]') as FormArray).controls
+  }
+```
+
+#### setValue() and patchValue()
+`this.[formName].setValue()`
+`this.[formName].patchValue()`
+
+#### Custom Validators
+...
+
+#### Value and Status changes - hooks observables
+`this.[formName].valueChanges.subscribe(value => console.log(value))`  
+`this.[formName].statusChanges.subscribe(status => console.log(status))`
+
+___
+## Pipes
+___
+...
+
+___
+## HTTP request
+___
+...
+___
+## Authentication
+___
 ### Sign Up
 
 ``` typescript
@@ -218,19 +356,24 @@ It will prevent the user from reaching the page but will **still load** the modu
 ### canload
 Will prevent the user from reaching the page but will **not load** the module. *Better in case of lazy loading*
 
-
-
+___
 ## Local Storage
+___
+
 - localStorage
 - **.setItem**('[dataKeyName]', JSON.stringify([objectToStore]));
 - JSON.parse(**.getItem**('[dataKeyName]'));
 - **.removeItem**('[dataKeyName]');
 
+___
 ## SSR
+___
 
 - ng add @nguniversal/express-engine
 
+___
 ## PWA - Service Workers
+___
 
 - ng add @angular/pwa
 Installs the following files:

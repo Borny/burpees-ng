@@ -24,7 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
     )
       .subscribe(user => {
         this.isLogged = !!user;
-      })
+      });
     this.authService.autoLogin();
   }
 

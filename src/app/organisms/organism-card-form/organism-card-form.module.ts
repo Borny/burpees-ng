@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { OrganismCardFormComponent } from './organism-card-form.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
   ],
   exports: [
     OrganismCardFormComponent

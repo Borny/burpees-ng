@@ -9,7 +9,9 @@
   There are no cards to display...please add one
 </p>
 
-<p *ngIf="fetching">Fetching...</p>
+<!-- <p *ngIf="fetching">Fetching...</p> -->
+
+<loader *ngIf="fetching"></loader>
 <p *ngIf="error && !fetching">{{ error }}</p>
 
 <ng-container *ngIf="cards && !fetching">

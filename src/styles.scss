@@ -7,17 +7,19 @@
 @import "./assets/styles/dropdown";
 
 .alert {
-    color: red;
-    background: rgba(255, 0, 0, 0.5);
+    color: $guardsmanRed;
+    background: $color-primary;
     padding: 20px;
     text-align: center;
+    border-radius: 8px;
 }
 
 .success {
-    color: blue;
-    background: rgba(0, 0, 255, 0.5);
+    color: $color-ternary;
+    background: $color-primary;
     padding: 20px;
     text-align: center;
+    border-radius: 8px;
 }
 
 .auth-form {
