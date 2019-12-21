@@ -83,8 +83,8 @@ export class OrganismCardFormComponent implements OnInit, OnDestroy {
   }
 
   private addCard(card: Card): void {
-    this.dataStorageService.postCard(card);
     // this.cardService.addCard(card);
+    this.dataStorageService.postCard(card);
     this.cardForm.reset();
   }
 

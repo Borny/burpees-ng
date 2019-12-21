@@ -5,10 +5,12 @@
   <a class="btn-link" routerLink="/" *ngIf="!isAuthenticated">Auth</a>
   <a class="btn-link" routerLink="/detail">Detail</a>
 </div> -->
+<div class="header__card-count">
+  <p>{{ cardCount }} / 100</p>
+</div>
 
 <div class="header__title">
   <p>{{ heading | uppercase }}</p>
-  <!-- <span>{{ cardCount }} / 100</span> -->
 </div>
 
 <div class="dropdown__container" dropdown>

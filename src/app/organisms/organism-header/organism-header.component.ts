@@ -51,9 +51,9 @@ export class OrganismHeaderComponent implements OnInit, OnDestroy {
     // this.cardService.cardsListChanged$
     //   .pipe(takeUntil(this.onDestroy$))
     //   .subscribe(cardsList => this.cardCount = cardsList.length);
-    // this.dataStorage.cardsListChanged$
-    //   .pipe(takeUntil(this.onDestroy$))
-    //   .subscribe(cardsList => this.cardCount = cardsList.length);
+    this.dataStorageService.cardsListChanged$
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(cardsList => this.cardCount = cardsList.length);
   }
 
   public onLogOut() {
