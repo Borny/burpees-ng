@@ -9,7 +9,10 @@ const homeRoutes: Routes = [
   {
     path: '',
     component: ViewHomeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: {
+      animations: 'HomeView'
+    }
   },
 ];
 

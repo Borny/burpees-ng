@@ -8,7 +8,10 @@ const detailRoutes: Routes = [
   {
     path: '',
     component: ViewDetailComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: {
+      animations: 'DetailView'
+    }
   }
 ];
 

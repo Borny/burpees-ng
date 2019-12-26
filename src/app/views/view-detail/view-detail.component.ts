@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 import { exhaustMap, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -11,11 +12,12 @@ import { ICard } from '../../shared/models/card/card.model';
   {
     selector: 'view-detail',
     templateUrl: './view-detail.component.html',
-    styleUrls: ['./view-detail.component.scss']
+    styleUrls: ['./view-detail.component.scss'],
   }
 )
 export class ViewDetailComponent implements OnInit, OnDestroy {
   public time: string;
+  public day: string;
   public set: string;
   public description: string;
   public card: ICard;
@@ -31,6 +33,7 @@ export class ViewDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.onGetCard();
+    this.getDayNumber();
   }
 
   ngOnDestroy() {
@@ -38,12 +41,15 @@ export class ViewDetailComponent implements OnInit, OnDestroy {
     this.onDestroy$.complete();
   }
 
+  private getDayNumber() {
+    this.day = this.route.snapshot.queryParamMap.get('index');
+  }
+
   private onGetCard() {
     this.fetching = true;
     this.route.params.pipe(
       takeUntil(this.onDestroy$),
       exhaustMap((value: Params) => {
-
         const id = value.id.toString();
         return this.dataStorageService.fetchCard(id);
       })

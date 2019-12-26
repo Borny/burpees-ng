@@ -1,8 +1,37 @@
 <loader *ngIf="fetching"></loader>
 
 <div class="card" *ngIf="!fetching">
-  <p></p>
-  <p>Card time : {{ time }}</p>
-  <p>Card set : {{ set }}</p>
-  <p>Card description : {{ description }}</p>
+  <header class="card__header">
+    <p class="card__header--content">
+      <span class="card__header--content-day">Day</span>
+      {{ day }}
+    </p>
+  </header>
+  <main class="card__body">
+    <p class="card__body--text">
+      <span>Time</span>
+      <span class="card__body--text--variable">
+        {{ time }}
+      </span>
+    </p>
+    <p class="card__body--text">
+      <span>
+        Set
+      </span>
+      <span
+        [ngClass]="{ unbroken: card.set.toLowerCase() === 'unbroken' }"
+        class="card__body--text--variable"
+      >
+        {{ set }}
+      </span>
+    </p>
+    <p class="card__body--text">
+      <span>
+        Description
+      </span>
+      <span class="card__body--text--variable">
+        {{ description }}
+      </span>
+    </p>
+  </main>
 </div>

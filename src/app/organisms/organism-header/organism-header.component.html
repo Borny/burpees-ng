@@ -6,7 +6,7 @@
   <a class="btn-link" routerLink="/detail">Detail</a>
 </div> -->
 <div class="header__card-count">
-  <p>{{ cardCount }} / 100</p>
+  <p *ngIf="router.url === '/home'">{{ cardCount }} / 100</p>
 </div>
 
 <div class="header__title">
@@ -29,14 +29,14 @@
       Log out
     </li>
     <li
-      *ngIf="isAuthenticated"
+      *ngIf="isAuthenticated && router.url === '/home'"
       (click)="onGetCards()"
       class="dropdown__menu--item"
     >
       Fetch cards
     </li>
     <li
-      *ngIf="isAuthenticated && hasCard"
+      *ngIf="isAuthenticated && hasCard && router.url === '/home'"
       (click)="onDeleteCards()"
       class="dropdown__menu--item"
     >

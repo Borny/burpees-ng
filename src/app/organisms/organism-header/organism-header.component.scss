@@ -1,7 +1,8 @@
 @import "../../../assets/styles/tools";
 
 :host {
-    display: flex;
+    display: grid;
+    grid-template-columns: 60px 1fr 60px;
     align-items: center;
     background: $color-primary;
     box-shadow: 0 0 1px 1px black;
@@ -11,6 +12,9 @@
     z-index: $zindex-header;
     width: 100%;
     padding: 1rem;
+    @media (min-width: $screen-sm) {
+        grid-template-columns: 100px 1fr 100px;
+    }
 }
 
 .header__card-count {

@@ -7,6 +7,7 @@ import { takeUntil } from 'rxjs/operators';
 import { DataStorageService } from '../../shared/services/data-storage.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { Card } from '../../shared/models/card/card.model';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'organism-header',
@@ -21,26 +22,21 @@ export class OrganismHeaderComponent implements OnInit, OnDestroy {
   public userName = 'Not signed in...';
   public cards: Card[] = [];
   public hasCard = false;
+  public navigateBack = false;
 
   private onDestroy$ = new Subject<void>();
 
   constructor(
     // private cardService: CardService,
     private dataStorageService: DataStorageService,
-    private authService: AuthService) {
+    private authService: AuthService,
+    private route: ActivatedRoute,
+    public router: Router) {
   }
 
   ngOnInit(): void {
     this.getCardCount();
-    this.authService.user$.pipe(
-      takeUntil(this.onDestroy$)
-    )
-      .subscribe(
-        user => {
-          this.isAuthenticated = !!user;
-          if (user) { this.userName = user.email; }
-        }
-      );
+    this.getUser();
   }
 
   ngOnDestroy(): void {
@@ -80,6 +76,18 @@ export class OrganismHeaderComponent implements OnInit, OnDestroy {
       );
 
     // this.cards = this.cardService.getCards();
+  }
+
+  private getUser() {
+    this.authService.user$.pipe(
+      takeUntil(this.onDestroy$)
+    )
+      .subscribe(
+        user => {
+          this.isAuthenticated = !!user;
+          if (user) { this.userName = user.email; }
+        }
+      );
   }
 
 }

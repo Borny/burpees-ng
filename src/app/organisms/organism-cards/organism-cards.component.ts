@@ -94,9 +94,9 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
     return item.id;
   }
 
-  public navigate(card: ICard) {
+  public navigate(card: ICard, index: number) {
     console.log(card.id);
-    this.route.navigate([`./${card.id}`]);
+    this.route.navigate([`./${card.id}`], { queryParams: { index: `${index + 1}` } });
   }
 
 }

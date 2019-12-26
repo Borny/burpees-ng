@@ -134,6 +134,10 @@ const routes: Routes = [
     component: [componentName]
   },
   {
+    path: '[:param]',
+    component: [componentDetailName]
+  },
+  {
     path: '**',
     component: [componentName]
   },
@@ -222,6 +226,38 @@ Will add the path to the current route
 
 import { Router } from '@angular/router'
 `this.route.navigate('/routeName')`
+
+### Get params from the URL
+Use the ActivatedRoute module
+
+#### Route param
+In the route module: 
+``` typescript
+path: ':[paramName]'
+```
+
+``` typescript
+const param = this.route.snapshot.params('[paramName]')
+```
+**or**
+``` typescript
+const param = this.route.params.subscribe((param: Params) => {this.[customProperty] = param})
+```
+
+#### Other params
+=> Setting the param
+``` typescript
+this.route.navigate([`./[pathName]`], { queryParams: { [paramKeyName]: `[paramValueName]` } });
+```
+
+=> Getting the param
+``` typescript
+this.route.snapshot.queryParamMap.get('[paramKeyName]')
+```
+**or**
+``` typescript
+const param = this.route.queryParamMap.subscribe((param: Params) => {this.[customProperty] = param})
+```
 
 ### Preloading strategy
 
@@ -448,8 +484,29 @@ Will prevent the user from reaching the page but will **not load** the module. _
 ---
 ## Animations
 ---
+``` javascript
+  animations: [
+    trigger('[CustomAnimationName]', [
+      transition('* => *', [ // each time the binding value changes
+        query(':leave', [
+          stagger(100, [
+            animate('0.5s', style({ opacity: 0 }))
+          ])
+        ], { optional: true }),
+        query(':enter', [
+          style({ opacity: 0 }),
+          stagger(100, [
+            animate('0.5s', style({ opacity: 1 }))
+          ])
+        ], { optional: true })
+      ])
+    ])
+  ]
+```
 
-
+``` html
+<div [@CustomAnimationName]> </div>
+```
 ---
 
 ## Local Storage

@@ -1,13 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-// import { ViewHomeComponent } from './views/view-home/view-home.component';
-import { ViewAuthComponent } from './views/view-auth/view-auth.component';
-// import { ViewDetailComponent } from './views/view-detail/view-detail.component';
-// import { View404Component } from './views/view-404/view-404.component';
-// import { AuthGuard } from './shared/services/auth.guard';
-// import { ViewHomeModule } from './views/view-home/view-home.module';
-
 const appRoutes: Routes = [
   {
     path: '',
@@ -20,11 +13,17 @@ const appRoutes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./views/view-home/view-home.module').then(m => m.ViewHomeModule)
+    loadChildren: () => import('./views/view-home/view-home.module').then(m => m.ViewHomeModule),
+    data: {
+      animations: 'HomeView'
+    }
   },
   {
     path: ':id',
-    loadChildren: () => import('./views/view-detail/view-detail.module').then(m => m.ViewDetailModule)
+    loadChildren: () => import('./views/view-detail/view-detail.module').then(m => m.ViewDetailModule),
+    data: {
+      animations: 'DetailView'
+    }
   },
   {
     path: '**',

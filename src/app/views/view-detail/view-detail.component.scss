@@ -1,0 +1,78 @@
+@import "../../../assets/styles/tools";
+
+:host {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.card {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #e8d0a6;
+    border-radius: 4px;
+    padding: 2rem;
+}
+
+.card__header {
+    color: $mineShaft;
+    display: flex;
+    &--content {
+        font-size: 2rem;
+        font-family: Base02;
+        border-radius: 40px;
+        height: 30px;
+        display: flex;
+        width: 30px;
+        justify-content: center;
+        align-items: center;
+        transform: rotate(-10deg);
+        &-day {
+            padding: 0 0.3rem 0 0;
+        }
+    }
+}
+
+.card__body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: 2rem 0 0;
+    &--text {
+        margin: 2rem 0 0;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        flex: 1;
+        &:first-child {
+            justify-content: flex-end;
+        }
+        .unbroken {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Base02;
+            color: $color-ternary;
+            transform: rotate(-10deg);
+            font-size: 1rem;
+            border: none;
+            @include screen-sm {
+                font-size: 1.6rem;
+            }
+        }
+        &--variable {
+            color: $color-ternary;
+            font-weight: $fontWeightBold;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 0.3rem 0 0;
+        }
+    }
+}
