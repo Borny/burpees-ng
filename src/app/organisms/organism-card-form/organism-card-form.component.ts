@@ -75,16 +75,16 @@ export class OrganismCardFormComponent implements OnInit, OnDestroy {
 
   private initForm(): void {
     this.cardForm = new FormGroup({
-      // day: new FormControl('', Validators.required),
       time: new FormControl('', Validators.required),
-      set: new FormControl('', Validators.required)
+      set: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
     });
     this.inputTime.nativeElement.focus();
   }
 
   private addCard(card: Card): void {
-    // this.cardService.addCard(card);
-    this.dataStorageService.postCard(card);
+    this.cardService.addCard(card);
+    // this.dataStorageService.postCard(card);
     this.cardForm.reset();
   }
 

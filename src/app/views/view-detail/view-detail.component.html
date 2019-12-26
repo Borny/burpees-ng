@@ -1,1 +1,8 @@
-<p>details</p>
+<loader *ngIf="fetching"></loader>
+
+<div class="card" *ngIf="!fetching">
+  <p></p>
+  <p>Card time : {{ time }}</p>
+  <p>Card set : {{ set }}</p>
+  <p>Card description : {{ description }}</p>
+</div>

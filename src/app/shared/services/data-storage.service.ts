@@ -2,23 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
-import { map, catchError, take, exhaustMap } from 'rxjs/operators';
+import { tap, map, catchError, take, exhaustMap } from 'rxjs/operators';
 
-import { Card } from '../models/card/card.model';
+import { Card, ICard } from '../models/card/card.model';
 import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
 
-  private cards: Card[] = [];
-  public cardsListChanged$: BehaviorSubject<Card[]> = new BehaviorSubject(this.cards.slice());
+  private cards: ICard[] = [];
+  public cardsListChanged$: BehaviorSubject<ICard[]> = new BehaviorSubject(this.cards.slice());
 
   private readonly URL = `https://ng-burpees.firebaseio.com/cards.json`;
 
   constructor(private http: HttpClient, private authService: AuthService) {
+    this.cardsListChanged$.subscribe(cards => this.cards = cards);
   }
 
-  public postCard(cardData: Card) {
+  public postCard(cardData: ICard) {
     this.authService.user$.pipe(
       take(1),
       exhaustMap(user => {
@@ -29,7 +30,8 @@ export class DataStorageService {
             params: new HttpParams().set('auth', user.token)
           }
         );
-      }))
+      }),
+    )
       .subscribe();
   }
 
@@ -41,7 +43,22 @@ export class DataStorageService {
   //     .subscribe();
   // }
 
-  public fetchCards(): Observable<any[]> {
+  public fetchCard(id: string): Observable<ICard> {
+    return this.authService.user$.pipe(
+      take(1),
+      exhaustMap(user => {
+        return this.http.get<ICard>(
+          `https://ng-burpees.firebaseio.com/cards/${id}.json`,
+          {
+            params: new HttpParams().set('auth', user.token)
+          }
+        );
+      })
+    );
+  }
+
+
+  public fetchCards(): Observable<ICard[]> {
     return this.authService.user$.pipe(
       take(1),
       exhaustMap(user => {
@@ -52,7 +69,7 @@ export class DataStorageService {
           }
         );
       }),
-      map((responseData: Card[]) => {
+      map((responseData: ICard[]) => {
         const postArray = [];
         for (const key in responseData) {
           if (responseData.hasOwnProperty(key)) {

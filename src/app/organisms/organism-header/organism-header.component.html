@@ -10,12 +10,14 @@
 </div>
 
 <div class="header__title">
-  <p>{{ heading | uppercase }}</p>
+  <a class="header__title--content" routerLink="/home">{{
+    heading | uppercase
+  }}</a>
 </div>
 
 <div class="dropdown__container" dropdown>
   <div class="dropdown__trigger">
-    <span></span>
+    <span class="burger"></span>
   </div>
 
   <ul class="dropdown__menu">

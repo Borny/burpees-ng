@@ -6,14 +6,13 @@
 <p *ngIf="error && !fetching">{{ error }}</p>
 
 <ng-container *ngIf="cards && !fetching">
-  <div class="card-container">
+  <div class="card-container" [@listAnimation]="cards.length">
     <molecule-card
       *ngFor="let card of cards; index as i; last as isLast; trackBy: trackByFn"
       [card]="card"
       [index]="i"
       [isLast]="isLast"
-      (deleteCard$)="deleteCard(i, isLast)"
-      (editCard$)="editCard(i)"
+      (click)="navigate(card)"
     ></molecule-card>
   </div>
 </ng-container>

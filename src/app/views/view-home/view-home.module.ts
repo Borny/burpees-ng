@@ -6,7 +6,7 @@ import { ViewHomeComponent } from './view-home.component';
 
 import { OrganismCardFormModule } from '../../organisms/organism-card-form/organism-card-form.module';
 import { OrganismCardsModule } from '../../organisms/organism-cards/organism-cards.module';
-import { HomeRouting } from './home-routing.module';
+import { HomeRouting } from './home.routing';
 
 @NgModule({
   declarations: [

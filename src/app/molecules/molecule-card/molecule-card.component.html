@@ -12,11 +12,11 @@
     </span>
   </p>
   <p class="card__body--text">
-    <span *ngIf="card.set !== 'unbroken'">
+    <span *ngIf="card.set.toLowerCase() !== 'unbroken'">
       Set
     </span>
     <span
-      [ngClass]="{ unbroken: card.set === 'unbroken' }"
+      [ngClass]="{ unbroken: card.set.toLowerCase() === 'unbroken' }"
       class="card__body--text--variable"
     >
       {{ card.set }}

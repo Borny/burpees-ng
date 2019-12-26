@@ -1,26 +1,49 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
+import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 
 import { DataStorageService } from '../../shared/services/data-storage.service';
-import { Card } from '../../shared/models/card/card.model';
+import { ICard } from '../../shared/models/card/card.model';
 import { CardService } from '../../shared/services/card.service';
 
 @Component({
   selector: 'organism-cards',
   templateUrl: './organism-cards.component.html',
-  styleUrls: ['./organism-cards.component.scss']
+  styleUrls: ['./organism-cards.component.scss'],
+  animations: [
+    trigger('listAnimation', [
+      transition('* => *', [ // each time the binding value changes
+        query(':leave', [
+          stagger(100, [
+            animate('0.5s', style({ opacity: 0 }))
+          ])
+        ], { optional: true }),
+        query(':enter', [
+          style({ opacity: 0 }),
+          stagger(100, [
+            animate('0.5s', style({ opacity: 1 }))
+          ])
+        ], { optional: true })
+      ])
+    ])
+  ]
 })
 
 export class OrganismCardsComponent implements OnInit, OnDestroy {
 
-  public cards: Card[] = [];
+  public cards: ICard[] = [];
   public fetching = false;
   public error: string = null;
 
   private subscription: Subscription;
 
-  constructor(private dataStorageService: DataStorageService, private cardService: CardService) {
+  constructor(
+    private dataStorageService: DataStorageService,
+    private cardService: CardService,
+    private route: Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -28,7 +51,7 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
     // this.subscription = this.cardService.cardsListChanged$
     //   .subscribe((cardList: Card[]) => this.cards = cardList);
     this.subscription = this.dataStorageService.cardsListChanged$
-      .subscribe((cardList: Card[]) => this.cards = cardList);
+      .subscribe((cardList: ICard[]) => this.cards = cardList);
   }
 
   ngOnDestroy(): void {
@@ -39,9 +62,9 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
     this.fetching = true;
 
     // Data Storage Service
-    this.dataStorageService.fetchCards()
+    this.subscription = this.dataStorageService.fetchCards()
       .subscribe(
-        (cards: Card[]) => {
+        (cards: ICard[]) => {
           this.cards = cards;
 
           this.cards.map((card, index) => card.day = (index + 1).toString());
@@ -59,16 +82,21 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
     // this.cards = this.cardService.getCards();
   }
 
-  public editCard(index: number): void {
-    this.cardService.openEditForm$.next(index);
-  }
+  // public editCard(index: number): void {
+  //   this.cardService.openEditForm$.next(index);
+  // }
 
-  public deleteCard(index: number, isLast: boolean): void {
-    isLast ? this.cardService.deleteCard(index) : this.cardService.clearCard(index);
-  }
+  // public deleteCard(index: number, isLast: boolean): void {
+  //   isLast ? this.cardService.deleteCard(index) : this.cardService.clearCard(index);
+  // }
 
-  public trackByFn(index: number, item: Card) {
+  public trackByFn(index: number, item: ICard) {
     return item.id;
+  }
+
+  public navigate(card: ICard) {
+    console.log(card.id);
+    this.route.navigate([`./${card.id}`]);
   }
 
 }

@@ -14,6 +14,10 @@
             color: $guardsmanRed;
         }
     }
+    &__textarea {
+        display: flex;
+        align-items: flex-end;
+    }
 }
 
 .form-control {
@@ -30,6 +34,10 @@
     -moz-box-shadow: none;
     box-shadow: none;
     color: $color-primary;
+    &__textarea {
+        line-height: 1.4;
+        height: 70%;
+    }
     &:hover {
         ~ .form-label {
             color: $color-primary;

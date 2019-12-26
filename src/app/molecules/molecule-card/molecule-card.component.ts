@@ -12,22 +12,22 @@ export class MoleculeCardComponent {
   @Input() index: number;
   @Input() isLast: boolean;
 
-  @Output() deleteCard$: EventEmitter<void> = new EventEmitter();
-  @Output() editCard$: EventEmitter<void> = new EventEmitter();
+  // @Output() deleteCard$: EventEmitter<void> = new EventEmitter();
+  // @Output() editCard$: EventEmitter<void> = new EventEmitter();
 
   public manageButtonContent: string;
 
-  public onManageCard() {
-    this.deleteCard$.emit();
-  }
+  // public onManageCard() {
+  //   this.deleteCard$.emit();
+  // }
 
-  public onEditCard() {
-    this.editCard$.emit();
-  }
+  // public onEditCard() {
+  //   this.editCard$.emit();
+  // }
 
-  public setButtonManageContent() {
-    return this.manageButtonContent = this.isLast
-      ? 'Delete'
-      : 'Clear';
-  }
+  // public setButtonManageContent() {
+  //   return this.manageButtonContent = this.isLast
+  //     ? 'Delete'
+  //     : 'Clear';
+  // }
 }

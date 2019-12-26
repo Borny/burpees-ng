@@ -22,9 +22,9 @@
 
 .header__title {
     flex: 1;
-    p {
+    text-align: center;
+    &--content {
         color: $color-ternary;
-        text-align: center;
         font-family: Base02;
         font-size: 1.1rem;
         @include screen-sm {

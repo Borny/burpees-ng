@@ -22,10 +22,10 @@ const appRoutes: Routes = [
     path: 'home',
     loadChildren: () => import('./views/view-home/view-home.module').then(m => m.ViewHomeModule)
   },
-  // {
-  //   path: 'detail',
-  //   component: ViewDetailComponent
-  // },
+  {
+    path: ':id',
+    loadChildren: () => import('./views/view-detail/view-detail.module').then(m => m.ViewDetailModule)
+  },
   {
     path: '**',
     loadChildren: () => import('./views/view-404/view-404.module').then(m => m.View404Module)

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 
-import { NotFoundRouting } from './not-found-routing.module';
+import { NotFoundRouting } from './not-found.routing';
 import { View404Component } from './view-404.component';
 
 @NgModule({
