@@ -26,7 +26,7 @@ export class CardService {
 
     // this.cards.push(newCard);
     // this.dataStorageService.cardsListChanged$.next(this.cards.slice());
-    this.dataStorageService.postCard(card);
+    // this.dataStorageService.postCard(card);
   }
 
   public getCards(): ICard[] {

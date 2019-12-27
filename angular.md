@@ -562,3 +562,8 @@ Add this property to the ngsw-config.json file:
   }
 ]
 ```
+## Firebase
+
+### Deploy 
+
+cmd : `firease deploy`

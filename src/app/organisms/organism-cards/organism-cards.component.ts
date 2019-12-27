@@ -51,7 +51,10 @@ export class OrganismCardsComponent implements OnInit, OnDestroy {
     // this.subscription = this.cardService.cardsListChanged$
     //   .subscribe((cardList: Card[]) => this.cards = cardList);
     this.subscription = this.dataStorageService.cardsListChanged$
-      .subscribe((cardList: ICard[]) => this.cards = cardList);
+      .subscribe((cardList: ICard[]) => {
+        cardList.map((card, index) => card.day = (index + 1).toString());
+        this.cards = cardList;
+      });
   }
 
   ngOnDestroy(): void {

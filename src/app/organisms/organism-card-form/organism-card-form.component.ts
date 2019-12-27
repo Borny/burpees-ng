@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy, Output, EventEmitter, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { Card } from '../../shared/models/card/card.model';
+import { Card, ICard } from '../../shared/models/card/card.model';
 import { DataStorageService } from '../../shared/services/data-storage.service';
 import { CardService } from '../../shared/services/card.service';
 import { FormMode } from '../../shared/models/formMode/form-mode.model';
@@ -82,9 +82,9 @@ export class OrganismCardFormComponent implements OnInit, OnDestroy {
     this.inputTime.nativeElement.focus();
   }
 
-  private addCard(card: Card): void {
-    this.cardService.addCard(card);
-    // this.dataStorageService.postCard(card);
+  private addCard(card: ICard): void {
+    // this.cardService.addCard(card);
+    this.dataStorageService.postCard(card);
     this.cardForm.reset();
   }
 

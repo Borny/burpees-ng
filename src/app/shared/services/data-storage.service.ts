@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
-import { tap, map, catchError, take, exhaustMap } from 'rxjs/operators';
+import { tap, map, catchError, take, exhaustMap, switchMap } from 'rxjs/operators';
 
 import { Card, ICard } from '../models/card/card.model';
 import { AuthService } from './auth.service';
+import { User } from '../models/user/user.model';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
@@ -22,8 +23,8 @@ export class DataStorageService {
   public postCard(cardData: ICard) {
     this.authService.user$.pipe(
       take(1),
-      exhaustMap(user => {
-        return this.http.post(
+      exhaustMap((user: User) => {
+        return this.http.post<ICard>(
           this.URL,
           cardData,
           {
@@ -31,8 +32,13 @@ export class DataStorageService {
           }
         );
       }),
+      exhaustMap(() => {
+        return this.fetchCards();
+      })
     )
-      .subscribe();
+      .subscribe((cards: ICard[]) => {
+        this.cardsListChanged$.next(cards);
+      });
   }
 
   // public editCard(cardData: Card) {
@@ -42,21 +48,6 @@ export class DataStorageService {
   //   )
   //     .subscribe();
   // }
-
-  public fetchCard(id: string): Observable<ICard> {
-    return this.authService.user$.pipe(
-      take(1),
-      exhaustMap(user => {
-        return this.http.get<ICard>(
-          `https://ng-burpees.firebaseio.com/cards/${id}.json`,
-          {
-            params: new HttpParams().set('auth', user.token)
-          }
-        );
-      })
-    );
-  }
-
 
   public fetchCards(): Observable<ICard[]> {
     return this.authService.user$.pipe(
@@ -89,11 +80,25 @@ export class DataStorageService {
     );
   }
 
+  public fetchCard(id: string): Observable<ICard> {
+    return this.authService.user$.pipe(
+      take(1),
+      exhaustMap(user => {
+        return this.http.get<ICard>(
+          `https://ng-burpees.firebaseio.com/cards/${id}.json`,
+          {
+            params: new HttpParams().set('auth', user.token)
+          }
+        );
+      })
+    );
+  }
+
   public deleteCards(): void {
     this.authService.user$.pipe(
       take(1),
       exhaustMap(user => {
-        return this.http.delete(
+        return this.http.delete<null>(
           this.URL,
           {
             params: new HttpParams().set('auth', user.token)

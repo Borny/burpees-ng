@@ -1,0 +1,162 @@
+{
+  "configVersion": 1,
+  "timestamp": 1577457370852,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/10-es2015.1d78b121618e5f989380.js",
+        "/10-es5.1d78b121618e5f989380.js",
+        "/2-es2015.d3765f01ec290da3aeef.js",
+        "/2-es5.d3765f01ec290da3aeef.js",
+        "/7-es2015.f3cff23519273062b517.js",
+        "/7-es5.f3cff23519273062b517.js",
+        "/8-es2015.444f0dd3c6a754711217.js",
+        "/8-es5.444f0dd3c6a754711217.js",
+        "/9-es2015.dd98b86d636310029c7f.js",
+        "/9-es5.dd98b86d636310029c7f.js",
+        "/common-es2015.7c0e1bb94ac3817fe0ea.js",
+        "/common-es5.7c0e1bb94ac3817fe0ea.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main-es2015.59ebd00ad99a9a03a314.js",
+        "/main-es5.59ebd00ad99a9a03a314.js",
+        "/manifest.webmanifest",
+        "/polyfills-es2015.b00a8ee45d22faafa706.js",
+        "/polyfills-es5.dd3766814e917b2590f9.js",
+        "/runtime-es2015.dfc0a850e0a6a1afc1e4.js",
+        "/runtime-es5.dfc0a850e0a6a1afc1e4.js",
+        "/styles.1d1fd7e946b86c40b5ea.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/fonts/TrueType/SFSportsNight.ttf",
+        "/assets/fonts/TrueType/SFSportsNightAltUpright.ttf",
+        "/assets/fonts/TrueType/SFSportsNightAlternate.ttf",
+        "/assets/fonts/TrueType/SFSportsNightNS.ttf",
+        "/assets/fonts/TrueType/SFSportsNightNSAltUpright.ttf",
+        "/assets/fonts/TrueType/SFSportsNightNSAlternate.ttf",
+        "/assets/fonts/TrueType/SFSportsNightNSUpright.ttf",
+        "/assets/fonts/TrueType/SFSportsNightUpright.ttf",
+        "/assets/fonts/base_02/Base 02.jpg",
+        "/assets/fonts/base_02/Base02.ttf",
+        "/assets/fonts/base_02/Readme.txt",
+        "/assets/fonts/safeFromHarm/safeFromHarm.ttf",
+        "/assets/fonts/tombRaider/TombRaider.ttf",
+        "/assets/icons/favicon.png",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/styles/_base.scss",
+        "/assets/styles/_buttons.scss",
+        "/assets/styles/_dropdown.scss",
+        "/assets/styles/_form.scss",
+        "/assets/styles/_mixins.scss",
+        "/assets/styles/_normalize.scss",
+        "/assets/styles/_placeholders.scss",
+        "/assets/styles/_tools.scss",
+        "/assets/styles/_variables.scss"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "cards",
+      "patterns": [
+        "https:\\/\\/ng-burpees\\.firebaseio\\.com\\/cards\\.json"
+      ],
+      "strategy": "freshness",
+      "maxSize": 5,
+      "maxAge": 21600000,
+      "timeoutMs": 10000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/10-es2015.1d78b121618e5f989380.js": "6e057ae8b042a5be9a746bcce056f3d112d58e4f",
+    "/10-es5.1d78b121618e5f989380.js": "9591dc7d90533b6ccc27c7ba49511ddf5ec2e40f",
+    "/2-es2015.d3765f01ec290da3aeef.js": "27628f538154af0bc8a229d654607f419339a022",
+    "/2-es5.d3765f01ec290da3aeef.js": "a54027f742bfe3ad8e1a39b0dcd0e4d848b4a6f0",
+    "/7-es2015.f3cff23519273062b517.js": "8ac2b4c201f2ae09ceed80906b0d7aedfb3ea961",
+    "/7-es5.f3cff23519273062b517.js": "e4be2f16ba0f882a4c4b27db51f475ea1bb4811a",
+    "/8-es2015.444f0dd3c6a754711217.js": "df2dbfad331f291e09b1ba0fb76efe0750b1408c",
+    "/8-es5.444f0dd3c6a754711217.js": "3bdaad8812f97a819dbc415356fae4b6c9576ac7",
+    "/9-es2015.dd98b86d636310029c7f.js": "a9841d166625374b21032270fc1baa0a37ee378e",
+    "/9-es5.dd98b86d636310029c7f.js": "10643055fc3748c23272243d1831814389f27a2d",
+    "/assets/fonts/TrueType/SFSportsNight.ttf": "7e306113532274257db31f2d20fd4019a667133c",
+    "/assets/fonts/TrueType/SFSportsNightAltUpright.ttf": "e7d88891bd3135daaa1196f52695b129acf89b34",
+    "/assets/fonts/TrueType/SFSportsNightAlternate.ttf": "98b663f96dea5b8b3f51b9a75a65e55a528dfef2",
+    "/assets/fonts/TrueType/SFSportsNightNS.ttf": "35043f152e67c4910a5e5ac1dd1d8b7127a143c1",
+    "/assets/fonts/TrueType/SFSportsNightNSAltUpright.ttf": "e0cd9fc4f8926ac265b21ae7b9298d972197231a",
+    "/assets/fonts/TrueType/SFSportsNightNSAlternate.ttf": "8ba1b11d0ac45fd5ebd4268a258e284d9eb670ef",
+    "/assets/fonts/TrueType/SFSportsNightNSUpright.ttf": "d020ed34cb277730650d47f2fcaa4cce39456712",
+    "/assets/fonts/TrueType/SFSportsNightUpright.ttf": "9e849eb88a1f95f33ba378cbef7fbfc47e74751a",
+    "/assets/fonts/base_02/Base 02.jpg": "a9922322771aa1d00391d2a0bd092e7b8eca4db2",
+    "/assets/fonts/base_02/Base02.ttf": "fb47bbbb2177a606d0f4fbd661e54524aa7030a8",
+    "/assets/fonts/base_02/Readme.txt": "0fcf20b46d2c2a0031f62c7da37b1a5d735503e7",
+    "/assets/fonts/safeFromHarm/safeFromHarm.ttf": "e03ac05439743e6308ab19261422d04cef6fee37",
+    "/assets/fonts/tombRaider/TombRaider.ttf": "6265e8b7e806b5ad94091d476968b2ba6906fb5a",
+    "/assets/icons/favicon.png": "23ca50565f1277c74aa6b1b9e98743976ff9f81b",
+    "/assets/icons/icon-128x128.png": "03e2b7e0e015faea93ddcd1e1f47346d39b8ceaf",
+    "/assets/icons/icon-144x144.png": "969720cbe60d0744f63771d7b7568aff6e663ccc",
+    "/assets/icons/icon-152x152.png": "fa6a7d11e0a588263a2c272343a97efcce516b20",
+    "/assets/icons/icon-192x192.png": "8e6e1a8d201526395c91f9cfb272f8b3a242f9d7",
+    "/assets/icons/icon-384x384.png": "66ccd037371cfef3b1362d7557c1580cac257710",
+    "/assets/icons/icon-512x512.png": "5dd2075661b1ca078a6a91404f615255efd7ad46",
+    "/assets/icons/icon-72x72.png": "5abdd451d7c6f0d2447ee07729458d15badf8f97",
+    "/assets/icons/icon-96x96.png": "767bf6e465ec440dadc2a9dde41c1b7d248a2a66",
+    "/assets/styles/_base.scss": "a3d8f1bcd80845faab561ce0abd1cfa5367fc7fc",
+    "/assets/styles/_buttons.scss": "938d773373ca48e559d113159b8a747a73b002c6",
+    "/assets/styles/_dropdown.scss": "1478c598121e94faf6dbb0636f1dd9ee528766a3",
+    "/assets/styles/_form.scss": "004438869c5323536a2fbdef8282d22d6b333492",
+    "/assets/styles/_mixins.scss": "2fd292f3158b093b8eae3c6273052bc0faf484b3",
+    "/assets/styles/_normalize.scss": "164a0f22f02be5daaf254b08269aff3f6966f301",
+    "/assets/styles/_placeholders.scss": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "/assets/styles/_tools.scss": "6bff0e628e1bd6953144029d2372c55503387183",
+    "/assets/styles/_variables.scss": "3b9d5b6c2aaf9cee4dd14505050ae1a2abe88d15",
+    "/common-es2015.7c0e1bb94ac3817fe0ea.js": "be92f274b670860fa9802d0097b421d8a7342567",
+    "/common-es5.7c0e1bb94ac3817fe0ea.js": "305453680fd5b55cc0d2dccfc5c61afef56f42d6",
+    "/favicon.ico": "23ca50565f1277c74aa6b1b9e98743976ff9f81b",
+    "/index.html": "2b85dad5451b0daa974497f33d5958c0c0658bb2",
+    "/main-es2015.59ebd00ad99a9a03a314.js": "d5ba15f6e2a8bb83ed5742b37d75d0ad9eaae1c5",
+    "/main-es5.59ebd00ad99a9a03a314.js": "65c53debd2554cde9196a5af646413c26c77d30a",
+    "/manifest.webmanifest": "3c4e08c3ce28e2c4b07f5ff2e8d95bf1e6611a60",
+    "/polyfills-es2015.b00a8ee45d22faafa706.js": "c37a8026023b3688ee0707b4afee9adfc3d4c95e",
+    "/polyfills-es5.dd3766814e917b2590f9.js": "507ddde4aa127667a00361e6f819253e80b7f542",
+    "/runtime-es2015.dfc0a850e0a6a1afc1e4.js": "e3279df540fe2c8bb80dec181139015d5b23d34b",
+    "/runtime-es5.dfc0a850e0a6a1afc1e4.js": "4e8dd13cac315aaf6c11e5d43965dc8c4454e9c4",
+    "/styles.1d1fd7e946b86c40b5ea.css": "521157483c3a782c54dbec8773c9261984203c3d"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
