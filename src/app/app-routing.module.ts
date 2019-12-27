@@ -13,17 +13,11 @@ const appRoutes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./views/view-home/view-home.module').then(m => m.ViewHomeModule),
-    data: {
-      animations: 'HomeView'
-    }
+    loadChildren: () => import('./views/view-home/view-home.module').then(m => m.ViewHomeModule)
   },
   {
     path: ':id',
-    loadChildren: () => import('./views/view-detail/view-detail.module').then(m => m.ViewDetailModule),
-    data: {
-      animations: 'DetailView'
-    }
+    loadChildren: () => import('./views/view-detail/view-detail.module').then(m => m.ViewDetailModule)
   },
   {
     path: '**',

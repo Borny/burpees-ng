@@ -5,7 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 import { AuthService } from './shared/services/auth.service';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
 
 import { routeTransitionAnimations } from './shared/animations/animations';
 
@@ -20,7 +20,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private onDestroy$ = new Subject<void>();
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    public router: Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -39,7 +42,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   public prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animations'];
-    // return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animations;
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animations;
   }
 }

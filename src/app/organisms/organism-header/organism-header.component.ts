@@ -7,7 +7,7 @@ import { takeUntil } from 'rxjs/operators';
 import { DataStorageService } from '../../shared/services/data-storage.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { Card } from '../../shared/models/card/card.model';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'organism-header',
@@ -30,7 +30,6 @@ export class OrganismHeaderComponent implements OnInit, OnDestroy {
     // private cardService: CardService,
     private dataStorageService: DataStorageService,
     private authService: AuthService,
-    private route: ActivatedRoute,
     public router: Router) {
   }
 
